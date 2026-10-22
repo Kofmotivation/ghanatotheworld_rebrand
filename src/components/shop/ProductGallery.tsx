@@ -22,7 +22,7 @@ export function ProductGallery({
           fill
           priority
           sizes="(max-width:768px) 100vw, 50vw"
-          className="object-contain object-center p-6 md:p-10"
+          className="object-contain object-center p-8 md:p-14"
         />
       </div>
       {images.length > 1 ? (

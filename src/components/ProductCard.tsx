@@ -14,7 +14,7 @@ export function ProductCard({ product }: { product: Product }) {
           alt={product.name}
           fill
           sizes="(max-width:768px) 50vw, 25vw"
-          className="object-contain object-center p-4 md:p-5"
+          className="object-contain object-center p-6 md:p-8"
         />
         {product.soldOut ? (
           <span className="absolute top-3 left-3 text-[0.6rem] tracking-[0.12em] text-[var(--mist)] uppercase">

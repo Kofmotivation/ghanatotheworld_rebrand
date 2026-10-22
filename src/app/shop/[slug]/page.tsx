@@ -94,7 +94,7 @@ export default async function ProductPage({ params }: Props) {
                     alt={p.name}
                     fill
                     sizes="25vw"
-                    className="object-contain object-center p-4"
+                    className="object-contain object-center p-6"
                   />
                 </div>
                 <p className="mt-3 text-sm">{p.name}</p>
