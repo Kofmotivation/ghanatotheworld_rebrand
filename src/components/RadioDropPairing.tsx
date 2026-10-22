@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { RadioPlayer } from "@/components/RadioPlayer";
 import { Reveal } from "@/components/Reveal";
 import type { Campaign, RadioEpisode } from "@/lib/content";
@@ -26,9 +27,9 @@ export function RadioDropPairing({
       {episodes.length === 0 ? (
         <Reveal className="mt-10 border border-[var(--line)] bg-[var(--bg-elevated)] p-6 text-sm text-[var(--fg-soft)]">
           No radio mixes paired yet. See the{" "}
-          <a href="/radio" className="underline">
+          <Link href="/radio" className="underline">
             Radio archive
-          </a>
+          </Link>
           .
         </Reveal>
       ) : (
