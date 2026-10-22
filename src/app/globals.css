@@ -163,7 +163,7 @@ a {
 /* Cargo flats are often edge-cropped — leave air in the tile */
 .product-frame > img,
 .product-frame > span > img {
-  transform: scale(0.82);
+  transform: scale(0.68);
   transform-origin: center center;
 }
 
