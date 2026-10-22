@@ -160,6 +160,13 @@ a {
   background: var(--bg-muted);
 }
 
+/* Cargo flats are often edge-cropped — leave air in the tile */
+.product-frame > img,
+.product-frame > span > img {
+  transform: scale(0.82);
+  transform-origin: center center;
+}
+
 .look-tile img,
 .category-tile img {
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
