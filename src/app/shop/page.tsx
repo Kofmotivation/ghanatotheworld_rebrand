@@ -33,77 +33,88 @@ export default async function ShopPage({ searchParams }: Props) {
       ? category
       : "All";
 
+  const filteredActive = Boolean(activeCampaign || category);
+
   return (
-    <div className="bg-[var(--bg)]">
-      {/* Compact collection chrome — HOE collections/all rhythm */}
-      <div className="flex flex-wrap items-end justify-between gap-4 border-b border-[var(--gridline)] px-4 py-4 md:px-6">
-        <div>
-          <h1 className="font-display text-[1.65rem] leading-none tracking-[0.02em] md:text-[2rem]">
+    <div className="shop-page bg-[var(--bg)]">
+      <div className="shop-page-chrome px-4 pt-8 pb-2 md:px-10 md:pt-12 md:pb-3">
+        <div className="flex flex-wrap items-baseline justify-between gap-3">
+          <h1 className="font-display text-[clamp(2rem,5vw,3.25rem)] leading-none tracking-[0.02em]">
             {title}
           </h1>
-          <p className="mt-1 text-[0.68rem] tracking-[0.1em] text-[var(--mist)] uppercase">
-            {filtered.length} product{filtered.length === 1 ? "" : "s"}
-            {activeCampaign || category ? (
+          <p className="text-[0.65rem] tracking-[0.14em] text-[var(--mist)] uppercase">
+            {filtered.length} look{filtered.length === 1 ? "" : "s"}
+            {filteredActive ? (
               <>
                 {" · "}
-                <Link href="/shop" className="underline-offset-2 hover:underline">
-                  Clear
+                <Link href="/shop" className="hover:text-[var(--fg)]">
+                  View all
                 </Link>
               </>
             ) : null}
           </p>
         </div>
-        <p className="max-w-xs text-right text-[0.65rem] tracking-[0.08em] text-[var(--mist)] uppercase">
-          ALL SALES FINAL
-        </p>
-      </div>
 
-      <div className="flex flex-wrap gap-x-5 gap-y-2 border-b border-[var(--gridline)] px-4 py-3 text-[0.65rem] tracking-[0.12em] uppercase md:px-6">
-        <Link
-          href="/shop"
-          className={!chapter && !category ? "text-[var(--fg)]" : "text-[var(--mist)] hover:text-[var(--fg)]"}
+        {/* Collection filters — quiet uppercase row */}
+        <nav
+          className="shop-filters mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 md:mt-8"
+          aria-label="Shop collections"
         >
-          All
-        </Link>
-        {campaigns.map((c) => (
           <Link
-            key={c.slug}
-            href={`/shop?chapter=${c.shopFilter}`}
-            className={
-              chapter === c.shopFilter
-                ? "text-[var(--fg)]"
-                : "text-[var(--mist)] hover:text-[var(--fg)]"
-            }
+            href="/shop"
+            className={`shop-filter-link${!chapter && !category ? " is-active" : ""}`}
           >
-            {c.title}
+            All
           </Link>
-        ))}
-        <span className="text-[var(--gridline)]" aria-hidden>
-          |
-        </span>
-        {categories.map((c) => (
-          <Link
-            key={c}
-            href={`/shop?category=${encodeURIComponent(c)}`}
-            className={
-              category?.toLowerCase() === c.toLowerCase()
-                ? "text-[var(--fg)]"
-                : "text-[var(--mist)] hover:text-[var(--fg)]"
-            }
-          >
-            {c}
-          </Link>
-        ))}
+          {campaigns.map((c) => (
+            <Link
+              key={c.slug}
+              href={`/shop?chapter=${c.shopFilter}`}
+              className={`shop-filter-link${
+                chapter === c.shopFilter ? " is-active" : ""
+              }`}
+            >
+              {c.title}
+            </Link>
+          ))}
+        </nav>
+
+        <nav
+          className="shop-filters shop-filters--secondary mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 pb-6 md:pb-8"
+          aria-label="Shop categories"
+        >
+          {categories.map((c) => (
+            <Link
+              key={c}
+              href={`/shop?category=${encodeURIComponent(c)}`}
+              className={`shop-filter-link shop-filter-link--quiet${
+                category?.toLowerCase() === c.toLowerCase()
+                  ? " is-active"
+                  : ""
+              }`}
+            >
+              {c}
+            </Link>
+          ))}
+        </nav>
       </div>
 
-      {/* Hairline collection grid */}
-      <ul className="collection-grid">
+      <ul className="shop-grid px-3 pb-16 md:px-8 md:pb-24">
         {filtered.map((p) => (
-          <li key={p.slug} className="collection-grid-cell">
-            <ProductCard product={p} />
+          <li key={p.slug} className="shop-grid-cell">
+            <ProductCard product={p} variant="editorial" />
           </li>
         ))}
       </ul>
+
+      {filtered.length === 0 ? (
+        <p className="px-4 pb-20 text-sm text-[var(--mist)] md:px-10">
+          No products in this view.{" "}
+          <Link href="/shop" className="underline">
+            View all
+          </Link>
+        </p>
+      ) : null}
     </div>
   );
 }
