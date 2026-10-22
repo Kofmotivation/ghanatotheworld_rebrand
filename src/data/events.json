@@ -1,35 +1,75 @@
 [
   {
-    "id": "accra-touch-the-sky",
+    "id": "ghana",
     "lat": 5.6037,
     "lng": -0.187,
-    "city": "Accra",
-    "title": "Touch The Sky — Accra",
-    "description": "Home ground for the SS21 drop. Campaign stills shot across Accra streets and coastlines — the voice that started Ghana To The World.",
+    "city": "Ghana",
+    "title": "Ghana",
+    "description": "Looks from Ghana \u2014 stills from the GTTW home chapter. Open the gallery and scroll the full set.",
     "looks": [
       {
-        "imageUrl": "https://freight.cargo.site/t/original/i/4c27be77c002ef200523e8f6f2ea50dba59a4ec65f0f986d029afb96d9400a93/19122020.jpg",
-        "caption": "Touch The Sky campaign portrait"
+        "imageUrl": "/journal/ghana/ghana-01.jpg",
+        "caption": "Ghana look 01"
       },
       {
-        "imageUrl": "https://freight.cargo.site/t/original/i/912eff25de2ac9d3b71fe26f214af24dda73cb128270d378416d8cc487c2c28c/191220204.jpg",
-        "caption": "Editorial still — SS21"
+        "imageUrl": "/journal/ghana/ghana-02.jpg",
+        "caption": "Ghana look 02"
       },
       {
-        "imageUrl": "https://freight.cargo.site/t/original/i/c808b52bff0c3b64fab0a3f6c73ea166dd48cb3768fe1bca6bcc39d025809086/_V0A1693.jpg",
-        "caption": "Campaign portrait — Accra light"
+        "imageUrl": "/journal/ghana/ghana-03.jpg",
+        "caption": "Ghana look 03"
       },
       {
-        "imageUrl": "https://freight.cargo.site/t/original/i/d062ef87d4d0dfccb24b31bc10ff72241b518b7f7d323176d46aeb31a72dab9a/_DSC8449k-2.jpg",
-        "caption": "Street editorial — Accra"
+        "imageUrl": "/journal/ghana/ghana-04.jpg",
+        "caption": "Ghana look 04"
       },
       {
-        "imageUrl": "https://freight.cargo.site/t/original/i/683a42bae28fd6afa3319a2bcc4f134a2d338a46019eadeed82da92cf406ab6f/EfUkW5eXkAAPBue.jpeg",
-        "caption": "Accra tee worn"
+        "imageUrl": "/journal/ghana/ghana-05.jpg",
+        "caption": "Ghana look 05"
       },
       {
-        "imageUrl": "https://freight.cargo.site/t/original/i/66bfa31a42c4bb999503ac8f9b4cfcfd334be0a9c4989588e05fe2f7f78e76c1/GTTW-ACCRA-BLACK.png",
-        "caption": "Black Accra Tee"
+        "imageUrl": "/journal/ghana/ghana-06.jpg",
+        "caption": "Ghana look 06"
+      },
+      {
+        "imageUrl": "/journal/ghana/ghana-07.jpg",
+        "caption": "Ghana look 07"
+      },
+      {
+        "imageUrl": "/journal/ghana/ghana-08.jpg",
+        "caption": "Ghana look 08"
+      },
+      {
+        "imageUrl": "/journal/ghana/ghana-09.jpg",
+        "caption": "Ghana look 09"
+      },
+      {
+        "imageUrl": "/journal/ghana/ghana-10.jpg",
+        "caption": "Ghana look 10"
+      },
+      {
+        "imageUrl": "/journal/ghana/ghana-11.jpg",
+        "caption": "Ghana look 11"
+      },
+      {
+        "imageUrl": "/journal/ghana/ghana-12.jpg",
+        "caption": "Ghana look 12"
+      },
+      {
+        "imageUrl": "/journal/ghana/ghana-13.jpg",
+        "caption": "Ghana look 13"
+      },
+      {
+        "imageUrl": "/journal/ghana/ghana-14.jpg",
+        "caption": "Ghana look 14"
+      },
+      {
+        "imageUrl": "/journal/ghana/ghana-15.jpg",
+        "caption": "Ghana look 15"
+      },
+      {
+        "imageUrl": "/journal/ghana/ghana-16.jpg",
+        "caption": "Ghana look 16"
       }
     ]
   },
@@ -38,8 +78,8 @@
     "lat": 6.6885,
     "lng": -1.6244,
     "city": "Kumasi",
-    "title": "Fisherman — Ashanti chapter",
-    "description": "Denim cut for work, worn inland. Fisherman looks carried through Kumasi — craft and grit in the same silhouette.",
+    "title": "Fisherman \u2014 Ashanti chapter",
+    "description": "Denim cut for work, worn inland. Fisherman looks carried through Kumasi \u2014 craft and grit in the same silhouette.",
     "looks": [
       {
         "imageUrl": "https://freight.cargo.site/t/original/i/50e239fd696d8b8ee0be5850cc0b433d5c73b0064742f4e2f04a5397bad9494e/1DA4930F-DD7F-433A-B869-E08D21C506B9.JPG",
@@ -63,7 +103,7 @@
       },
       {
         "imageUrl": "https://freight.cargo.site/t/original/i/58fde600030eeb26e5f47bc3cc723ff27008d4ca9e94cfb8a5f30ea66cc8488e/_DSC8521-copy-2.jpg",
-        "caption": "Street still — Fisherman chapter"
+        "caption": "Street still \u2014 Fisherman chapter"
       }
     ]
   },
@@ -72,8 +112,8 @@
     "lat": 51.5074,
     "lng": -0.1278,
     "city": "London",
-    "title": "Knit Airways — London",
-    "description": "Benz and Airways knits in the diaspora capital. Layered looks for colder streets — same GTTW voice, new weather.",
+    "title": "Knit Airways \u2014 London",
+    "description": "Benz and Airways knits in the diaspora capital. Layered looks for colder streets \u2014 same GTTW voice, new weather.",
     "looks": [
       {
         "imageUrl": "https://freight.cargo.site/t/original/i/21163236459d05a225c59136becbc95e4fa6e5ab042998179e5c31a512ac957b/E15FE768-73A3-46B8-999D-0588D7F0508A-2.jpg",
@@ -106,8 +146,8 @@
     "lat": 40.7128,
     "lng": -74.006,
     "city": "New York",
-    "title": "Essentials — New York",
-    "description": "Graphics that travel. Accra tees, Africa Is Not For Sale, and GTTW hoodies on NYC blocks — permanent pieces for the diaspora.",
+    "title": "Essentials \u2014 New York",
+    "description": "Graphics that travel. Accra tees, Africa Is Not For Sale, and GTTW hoodies on NYC blocks \u2014 permanent pieces for the diaspora.",
     "looks": [
       {
         "imageUrl": "https://freight.cargo.site/t/original/i/c40015a98e318b4e5e691eb298694987d4be6df981f462d16f02a20e76f32333/EfUkW5iX0AET8_K.jpeg",
@@ -140,7 +180,7 @@
     "lat": 6.5244,
     "lng": 3.3792,
     "city": "Lagos",
-    "title": "Autumn / Winter — Lagos",
+    "title": "Autumn / Winter \u2014 Lagos",
     "description": "A denser chapter across West Africa. Knits and denim layers shared between Accra energy and Lagos nights.",
     "looks": [
       {
@@ -153,15 +193,15 @@
       },
       {
         "imageUrl": "https://freight.cargo.site/t/original/i/50e239fd696d8b8ee0be5850cc0b433d5c73b0064742f4e2f04a5397bad9494e/1DA4930F-DD7F-433A-B869-E08D21C506B9.JPG",
-        "caption": "Denim layer — A/W"
+        "caption": "Denim layer \u2014 A/W"
       },
       {
         "imageUrl": "https://freight.cargo.site/t/original/i/21163236459d05a225c59136becbc95e4fa6e5ab042998179e5c31a512ac957b/E15FE768-73A3-46B8-999D-0588D7F0508A-2.jpg",
-        "caption": "Lookbook frame — A/W"
+        "caption": "Lookbook frame \u2014 A/W"
       },
       {
         "imageUrl": "https://freight.cargo.site/t/original/i/d062ef87d4d0dfccb24b31bc10ff72241b518b7f7d323176d46aeb31a72dab9a/_DSC8449k-2.jpg",
-        "caption": "Street still — Lagos chapter"
+        "caption": "Street still \u2014 Lagos chapter"
       },
       {
         "imageUrl": "https://freight.cargo.site/t/original/i/58fde600030eeb26e5f47bc3cc723ff27008d4ca9e94cfb8a5f30ea66cc8488e/_DSC8521-copy-2.jpg",
@@ -174,8 +214,8 @@
     "lat": 33.749,
     "lng": -84.388,
     "city": "Atlanta",
-    "title": "GTTW Diaspora — Atlanta",
-    "description": "Southern U.S. chapter — hoodies and graphics in the Atlanta scene. Culture carried forward, not left behind.",
+    "title": "GTTW Diaspora \u2014 Atlanta",
+    "description": "Southern U.S. chapter \u2014 hoodies and graphics in the Atlanta scene. Culture carried forward, not left behind.",
     "looks": [
       {
         "imageUrl": "https://freight.cargo.site/t/original/i/b841366e793ca46a53efd304857a49689666491e15dcfd3c4e9c7de7b4da297a/Africa-To-The-World.png",
@@ -187,11 +227,11 @@
       },
       {
         "imageUrl": "https://freight.cargo.site/t/original/i/4c27be77c002ef200523e8f6f2ea50dba59a4ec65f0f986d029afb96d9400a93/19122020.jpg",
-        "caption": "Campaign still — diaspora wear"
+        "caption": "Campaign still \u2014 diaspora wear"
       },
       {
         "imageUrl": "https://freight.cargo.site/t/original/i/683a42bae28fd6afa3319a2bcc4f134a2d338a46019eadeed82da92cf406ab6f/EfUkW5eXkAAPBue.jpeg",
-        "caption": "Accra tee — Atlanta"
+        "caption": "Accra tee \u2014 Atlanta"
       },
       {
         "imageUrl": "https://freight.cargo.site/t/original/i/f44c41589d4f7d0bc247b78650dc7018aed980f2661f8384ee1afcef9ea6563f/Africa-Is-Not-For-Sale-Black-Front.png",
