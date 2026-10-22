@@ -1,44 +1,46 @@
 @import "tailwindcss";
 
-/* Deadly Ponies–inspired craft for GTTW: soft paper ground, near-black type,
-   serif display + quiet sans, navy accent. Not a clone — GTTW content & naming. */
+/* GTTW craft: commerce grid + menu lean House of Errors (hairline grids,
+   uppercase util nav, hover tile meta). Not a clone — GTTW content only. */
 
 :root,
 [data-theme="light"] {
-  --bg: #f8f7f4;
+  --bg: #ffffff;
   --bg-elevated: #ffffff;
-  --bg-muted: #f0efeb;
-  --fg: #141414;
-  --fg-soft: #484646;
-  --mist: #8b8a89;
-  --line: #e3e1e1;
-  --accent: #20349c;
-  --accent-soft: rgba(32, 52, 156, 0.1);
-  --header-bg: rgba(248, 247, 244, 0.92);
-  --inverse-bg: #141414;
-  --inverse-fg: #f8f7f4;
+  --bg-muted: #f3f3f3;
+  --fg: #000000;
+  --fg-soft: #4a4a4a;
+  --mist: #7a7a7a;
+  --line: #e5e5e5;
+  --gridline: #000000;
+  --accent: #254487;
+  --accent-soft: rgba(37, 68, 135, 0.12);
+  --header-bg: #ffffff;
+  --inverse-bg: #000000;
+  --inverse-fg: #fcfcfc;
   --hero-scrim: linear-gradient(
     180deg,
-    rgba(20, 20, 20, 0.15) 0%,
-    rgba(20, 20, 20, 0.05) 40%,
-    rgba(20, 20, 20, 0.55) 100%
+    rgba(0, 0, 0, 0.12) 0%,
+    rgba(0, 0, 0, 0.04) 40%,
+    rgba(0, 0, 0, 0.55) 100%
   );
   color-scheme: light;
 }
 
 [data-theme="dark"] {
-  --bg: #0e0e0e;
-  --bg-elevated: #161616;
-  --bg-muted: #1c1c1c;
-  --fg: #f4f3ef;
-  --fg-soft: #c4c2bc;
-  --mist: #8a8984;
+  --bg: #0a0a0a;
+  --bg-elevated: #121212;
+  --bg-muted: #1a1a1a;
+  --fg: #fcfcfc;
+  --fg-soft: #c8c8c8;
+  --mist: #8a8a8a;
   --line: #2a2a2a;
+  --gridline: #fcfcfc;
   --accent: #7b8fd4;
   --accent-soft: rgba(123, 143, 212, 0.15);
-  --header-bg: rgba(14, 14, 14, 0.92);
-  --inverse-bg: #f8f7f4;
-  --inverse-fg: #141414;
+  --header-bg: #0a0a0a;
+  --inverse-bg: #fcfcfc;
+  --inverse-fg: #0a0a0a;
   --hero-scrim: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.35) 0%,
@@ -68,9 +70,10 @@ body {
   min-height: 100vh;
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-body), system-ui, sans-serif;
-  font-size: 15px;
-  line-height: 1.5;
+  font-family: var(--font-body), Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.35s ease, color 0.35s ease;
 }
@@ -99,16 +102,21 @@ a {
 }
 
 .nav-link {
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--fg-soft);
-  transition: color 0.25s ease;
+  color: var(--fg);
+  transition: opacity 0.2s ease;
 }
 
-.nav-link:hover,
+.nav-link:hover {
+  opacity: 0.55;
+}
+
 .nav-link[data-active="true"] {
-  color: var(--fg);
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
 }
 
 .cta {
@@ -157,14 +165,60 @@ a {
 }
 
 .product-frame {
-  background: var(--bg-muted);
+  background: var(--bg);
 }
 
 /* Cargo flats are often edge-cropped — leave air in the tile */
 .product-frame > img,
 .product-frame > span > img {
-  transform: scale(0.68);
+  transform: scale(0.72);
   transform-origin: center center;
+}
+
+.collection-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-bottom: 1px solid var(--gridline);
+}
+
+@media (min-width: 768px) {
+  .collection-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .collection-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.collection-grid-cell {
+  border-right: 1px solid var(--gridline);
+  border-bottom: 1px solid var(--gridline);
+  margin-right: -1px;
+  margin-bottom: -1px;
+}
+
+.collection-tile {
+  height: 100%;
+}
+
+.collection-tile-meta {
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    color-mix(in srgb, var(--bg) 82%, transparent) 100%
+  );
+}
+
+@media (hover: none) {
+  .collection-tile-meta {
+    display: none;
+  }
 }
 
 .look-tile img,
@@ -175,10 +229,6 @@ a {
 .look-tile:hover img,
 .category-tile:hover img {
   transform: scale(1.03);
-}
-
-.product-tile:hover .product-frame {
-  background: color-mix(in srgb, var(--bg-muted) 85%, var(--fg) 4%);
 }
 
 .section-pad {
@@ -201,10 +251,11 @@ a {
 }
 
 .theme-toggle {
-  width: 2.25rem;
-  height: 2.25rem;
-  border: 1px solid var(--line);
-  background: var(--bg-elevated);
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--gridline);
+  border-radius: 0;
+  background: var(--bg);
   color: var(--fg);
   cursor: pointer;
   display: inline-flex;
@@ -223,11 +274,11 @@ a {
 .announcement {
   background: var(--fg);
   color: var(--bg);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-align: center;
-  padding: 0.55rem 1rem;
+  padding: 0.45rem 1rem;
 }
 
 .radio-player {

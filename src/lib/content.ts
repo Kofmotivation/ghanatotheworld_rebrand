@@ -15,7 +15,7 @@ export const brand = {
   },
 } as const;
 
-/** Clean commerce nav — Deadly Ponies–inspired rhythm */
+/** Primary nav — Shop opens as a mega panel (House of Errors–style) */
 export const nav = [
   { href: "/shop", label: "Shop" },
   { href: "/campaigns", label: "Collections" },
