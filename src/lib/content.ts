@@ -29,110 +29,292 @@ export type Product = {
   name: string;
   collection: string;
   category: string;
+  price: number;
+  sizes: string[];
+  soldOut: boolean;
+  cargoUrl: string;
+  cargoSlug: string;
+  description: string;
   image: string;
+  images: string[];
   campaignSlugs: string[];
 };
 
+export function productImage(p: Product) {
+  return p.images[0];
+}
+
+export function formatPrice(price: number) {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  }).format(price);
+}
+
 export const products: Product[] = [
+  {
+    slug: "black-accra-tee",
+    name: "Black Accra Tee",
+    collection: "Essentials",
+    category: "Tees",
+    price: 75.0,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    soldOut: false,
+    cargoUrl: "https://gttw.net/Black-Accra-Tee",
+    cargoSlug: "Black-Accra-Tee",
+    description: `Regular fit tee with round neck opening. Midweight 100% supima cotton. Contrast stiching. “ACCRA” patch on chest area. Text embroidered on the front. Logo printed on the back. Hand wash. Hang to dry.`,
+    campaignSlugs: ["essentials"],
+    image: cdn("66bfa31a42c4bb999503ac8f9b4cfcfd334be0a9c4989588e05fe2f7f78e76c1", "GTTW-ACCRA-BLACK.png"),
+    images: [
+      cdn("66bfa31a42c4bb999503ac8f9b4cfcfd334be0a9c4989588e05fe2f7f78e76c1", "GTTW-ACCRA-BLACK.png"),
+    ],
+  },
+  {
+    slug: "africa-is-not-for-sale-tee-black",
+    name: "Africa Is Not For Sale Tee (Black)",
+    collection: "Essentials",
+    category: "Tees",
+    price: 45.0,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    soldOut: true,
+    cargoUrl: "https://gttw.net/Black-Africa-is-Not-For-Sale-Tee",
+    cargoSlug: "Black-Africa-is-Not-For-Sale-Tee",
+    description: `DETAILS: Regular fit tee with round neck opening. Lightweight 100% supima cotton. Text printed on the front. Star logo printed on the back. True to size. Machine wash cold seperate, gentle cycle. Hang to dry. Sold Out`,
+    campaignSlugs: ["essentials"],
+    image: cdn("f44c41589d4f7d0bc247b78650dc7018aed980f2661f8384ee1afcef9ea6563f", "Africa-Is-Not-For-Sale-Black-Front.png"),
+    images: [
+      cdn("f44c41589d4f7d0bc247b78650dc7018aed980f2661f8384ee1afcef9ea6563f", "Africa-Is-Not-For-Sale-Black-Front.png"),
+    ],
+  },
+  {
+    slug: "ghana-to-the-world-hoodie-black",
+    name: "Ghana To The World Hoodie (Black)",
+    collection: "Essentials",
+    category: "Hoodies",
+    price: 75.0,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    soldOut: true,
+    cargoUrl: "https://gttw.net/Black-Ghana-To-The-World-Hoodie",
+    cargoSlug: "Black-Ghana-To-The-World-Hoodie",
+    description: `DETAILS: REGULAR FIT HOODIE. MID-WEIGHT 80% COTTON 20% POLYESTER. EMBROIDERED TEXT ON FRONT, PRINTED LOGO AT THE BACK FIT: TRUE TO SIZE CARE: MACHINE WASH COLD SEPARATE, GENTLE CYCLE. HANG TO DRY. Sold Out`,
+    campaignSlugs: ["essentials"],
+    image: cdn("85f10a42ae59065e716181bf5bcd07376ada020be6e830b6a49262aab654cdfc", "Ghana-To-The-World-Black-Front.png"),
+    images: [
+      cdn("85f10a42ae59065e716181bf5bcd07376ada020be6e830b6a49262aab654cdfc", "Ghana-To-The-World-Black-Front.png"),
+    ],
+  },
+  {
+    slug: "og-gttw-long-sleeve-tee",
+    name: "OG GTTW Long Sleeve Tee",
+    collection: "Essentials",
+    category: "Long sleeves",
+    price: 50.0,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    soldOut: true,
+    cargoUrl: "https://gttw.net/Black-OG-GTTW-Staple-Sweatshirt",
+    cargoSlug: "Black-OG-GTTW-Staple-Sweatshirt",
+    description: `DETAILS: REGULAR FIT TEE WITH ROUND NECK OPENING. LIGHTWEIGHT 90% SUPIMA COTTON / 10% SPANDEX. FIT: TRUE TO SIZE CARE: MACHINE WASH COLD SEPARATE, GENTLE CYCLE. HANG TO DRY. Sold Out`,
+    campaignSlugs: ["essentials"],
+    image: cdn("bf291bc923a1b3ec4a980006a39edd483a9551dd6c01115754528871d8a9daeb", "Ghana-To-The-World-Sweatshirt-Black-Front.png"),
+    images: [
+      cdn("bf291bc923a1b3ec4a980006a39edd483a9551dd6c01115754528871d8a9daeb", "Ghana-To-The-World-Sweatshirt-Black-Front.png"),
+    ],
+  },
   {
     slug: "fisherman-denim-jacket",
     name: "Fisherman Denim Jacket",
-    collection: "S/S ‘21",
+    collection: "S/S '21",
     category: "Outerwear",
-    campaignSlugs: ["touch-the-sky", "fisherman"],
-    image: cdn(
-      "f0f123c65ff602ff00006ae90c36373ca02c1955436bffcf19e2956244820395",
-      "GTTW_Fisherman-Denim_19_05_2021_Front.png",
-    ),
-  },
-  {
-    slug: "mens-fisherman-denim-pants",
-    name: "Men’s Fisherman Denim Pants",
-    collection: "S/S ‘21",
-    category: "Bottoms",
-    campaignSlugs: ["touch-the-sky", "fisherman"],
-    image: cdn(
-      "f35c5d22c5f77d631a75e4ce8040d2469b8f123ce021e6c86e1294376a2ae425",
-      "GTTW-Fisherman-Denim-Pants-Front.png",
-    ),
-  },
-  {
-    slug: "womens-fisherman-denim-pants",
-    name: "Women’s Fisherman Denim Pants",
-    collection: "S/S ‘21",
-    category: "Bottoms",
-    campaignSlugs: ["touch-the-sky", "fisherman"],
-    image: cdn(
-      "485fd6f8cab26bf074a2f050d6369a44b44b4bb06d5c3efacd8b8547f412d17a",
-      "GTTW-WOMEN-S-FISHERMAN-DENIM-FRONT.png",
-    ),
-  },
-  {
-    slug: "vim-button-up-shirt",
-    name: "Vim Button Up Shirt",
-    collection: "S/S ‘21",
-    category: "Tops",
-    campaignSlugs: ["touch-the-sky", "vim"],
-    image: cdn(
-      "558736e01c56ef85f454541ddcd0ebf473ba0940636f0b65527a2c33ae28b81f",
-      "GTTW-VIM-TEE-FRONT.png",
-    ),
-  },
-  {
-    slug: "vim-trunks",
-    name: "Vim Trunks",
-    collection: "S/S ‘21",
-    category: "Bottoms",
-    campaignSlugs: ["touch-the-sky", "vim"],
-    image: cdn(
-      "83657d976e4a12228d9f1fb5cecdac5fa8a740eeb6d1e2ba913bb5c6a88bdc5a",
-      "GTTW-VIM-SHORTS.png",
-    ),
-  },
-  {
-    slug: "gttw-benz-knit-sweater",
-    name: "GTTW Benz Knit Sweater",
-    collection: "S/S ‘21",
-    category: "Knitwear",
-    campaignSlugs: ["touch-the-sky", "knit-airways"],
-    image: cdn(
-      "57faaa0755ed0c9df1971a65eb86b48c76952c683ea2c616292fef5133e69402",
-      "GTTW-BENZ-FRONT.png",
-    ),
+    price: 250.0,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    soldOut: false,
+    cargoUrl: "https://gttw.net/Fisherman-Denim-Jacket",
+    cargoSlug: "Fisherman-Denim-Jacket",
+    description: `DETAILS: 100% Cotton Denim. Non-Stretch Printed Denim throughout. Tonal Stiching. Button closure at front. Flap pockets at chest. Welt pockets at waist. Adjustable buttoned tabs at back hem. Model is 5 ft 11” and wears L. Sizing Recommendation Mens: True To Size Womens: We recommend purchasing 1 size down for a regular fit. Purchase your normal size for an oversized look.`,
+    campaignSlugs: ["touch-the-sky", "fisherman", "aw22"],
+    image: cdn("b652497c757a6c21eba8e2efdaf9783a7592aacecaf92294d381c678b163cfa9", "GTTW_Fisherman-Denim_19_05_2021_Front.png"),
+    images: [
+      cdn("b652497c757a6c21eba8e2efdaf9783a7592aacecaf92294d381c678b163cfa9", "GTTW_Fisherman-Denim_19_05_2021_Front.png"),
+      cdn("162761c2c829487f6aec58dcf621b7a2a259c5d4510bd3aea0a1d53db078ba47", "GTTW_Fisherman-Denim_19_05_2021_Back.png"),
+    ],
   },
   {
     slug: "gttw-airways-knit-sweater",
     name: "GTTW Airways Knit Sweater",
-    collection: "S/S ‘21",
+    collection: "S/S '21",
     category: "Knitwear",
-    campaignSlugs: ["touch-the-sky", "knit-airways"],
-    image: cdn(
-      "6d0df2f85e03e8be6dde69211955ba20a842d767a40c04460135748f95b2964c",
-      "GTTW-PLANE-FRONT.png",
-    ),
+    price: 200.0,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    soldOut: true,
+    cargoUrl: "https://gttw.net/GTTW-Airways-Knit-Sweater",
+    cargoSlug: "GTTW-Airways-Knit-Sweater",
+    description: `Long sleeve knit cotton and wool-blend sweater in baby blue. Rib knit crewneck collar, cuffs, and hem. Intarsia knit clouds, plane patch logo embroidery on the front. Model is 5 ft 11” and wears M. Sold Out`,
+    campaignSlugs: ["touch-the-sky", "knit-airways", "aw22"],
+    image: cdn("3c615fff780f9566c02288401adde1c42f02390f965ee707aa1793ee27e9a1c3", "GTTW-PLANE-FRONT.png"),
+    images: [
+      cdn("3c615fff780f9566c02288401adde1c42f02390f965ee707aa1793ee27e9a1c3", "GTTW-PLANE-FRONT.png"),
+      cdn("290a17698bd3187d4c35afdcd7b1b9608731bb84eea0b515a94359d77ba2e876", "GTTW-PLANE-BACK.png"),
+    ],
   },
   {
-    slug: "ghana-to-the-world-tee-black",
-    name: "Ghana To The World Tee",
-    collection: "Essentials",
-    category: "Tees",
-    campaignSlugs: ["essentials"],
-    image: cdn(
-      "1c7068501cfb7e10e6bb91ade4a816c033e3b4020eefd8a35bafb8e52c3c4b63",
-      "Ghana-To-The-World-Tee-Black-Front.png",
-    ),
+    slug: "gttw-benz-knit-sweater",
+    name: "GTTW Benz Knit Sweater",
+    collection: "S/S '21",
+    category: "Knitwear",
+    price: 200.0,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    soldOut: true,
+    cargoUrl: "https://gttw.net/GTTW-Benz-Knit-Sweater",
+    cargoSlug: "GTTW-Benz-Knit-Sweater",
+    description: `Long sleeve color-blocked knit cotton and wool-blend sweater in green  with black sleeves. Rib knit crewneck collar, cuffs, and hem.  Intarsia knit car logo with GTTW logo on the front. Model is 5 ft 11” and wears M. Sold Out`,
+    campaignSlugs: ["touch-the-sky", "knit-airways", "aw22"],
+    image: cdn("fbce5cc5dcae1e89aa0b044e734cd0ced29a957007353020c45fe9557936cb0e", "GTTW-BENZ-FRONT.png"),
+    images: [
+      cdn("fbce5cc5dcae1e89aa0b044e734cd0ced29a957007353020c45fe9557936cb0e", "GTTW-BENZ-FRONT.png"),
+      cdn("09ea12627db724f00b14931e1bc57bcd808540db7516ae622ffadb21399ba32e", "GTTW-BENZ-BACK.png"),
+    ],
   },
   {
-    slug: "africa-is-not-for-sale",
-    name: "Africa Is Not For Sale Tee",
+    slug: "africa-to-the-world-hoodie",
+    name: "Africa To The World Hoodie",
+    collection: "Essentials",
+    category: "Hoodies",
+    price: 75.0,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    soldOut: true,
+    cargoUrl: "https://gttw.net/Green-Ghana-To-The-World-Hoodie",
+    cargoSlug: "Green-Ghana-To-The-World-Hoodie",
+    description: `DETAILS: REGULAR FIT HOODIE. MID-WEIGHT 80% COTTON 20% POLYESTER. EMBROIDERED TEXT ON FRONT, PRINTED LOGO AT THE BACK FIT: TRUE TO SIZE CARE: MACHINE WASH COLD SEPARATE, GENTLE CYCLE. HANG TO DRY. Sold Out`,
+    campaignSlugs: ["essentials"],
+    image: cdn("b841366e793ca46a53efd304857a49689666491e15dcfd3c4e9c7de7b4da297a", "Africa-To-The-World.png"),
+    images: [
+      cdn("b841366e793ca46a53efd304857a49689666491e15dcfd3c4e9c7de7b4da297a", "Africa-To-The-World.png"),
+    ],
+  },
+  {
+    slug: "mens-fisherman-denim-pants",
+    name: "Men's Fisherman Denim Pants",
+    collection: "S/S '21",
+    category: "Bottoms",
+    price: 180.0,
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+    soldOut: false,
+    cargoUrl: "https://gttw.net/Men-s-Fisherman-Denim-Pants",
+    cargoSlug: "Men-s-Fisherman-Denim-Pants",
+    description: `100% Cotton denim. Printed design throughout. Straight Leg. Tonal Stitching. Imported. Classic 5-pocket jeans. Size Chart`,
+    campaignSlugs: ["touch-the-sky", "fisherman"],
+    image: cdn("eb27fdcb945217fcff06753a2a052808ed33e71034259b6a2fadb4a8e8fb6d24", "GTTW-Fisherman-Denim-Pants-Front-2.png"),
+    images: [
+      cdn("eb27fdcb945217fcff06753a2a052808ed33e71034259b6a2fadb4a8e8fb6d24", "GTTW-Fisherman-Denim-Pants-Front-2.png"),
+      cdn("c438463f77857f4ac068ebc42c8d151bafd7d3266bb72f0c44ec8161285aec6e", "GTTW-Fisherman-Denim-Pants-Back.png"),
+    ],
+  },
+  {
+    slug: "vim-button-up-shirt",
+    name: "Vim Button Up Shirt",
+    collection: "S/S '21",
+    category: "Tops",
+    price: 85.0,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    soldOut: true,
+    cargoUrl: "https://gttw.net/Vim-Shirt",
+    cargoSlug: "Vim-Shirt",
+    description: `100% Polyester. Satin. Short sleeve button up. Vim logo in different colors. The world is yours blimp. Patch pocket at chest. Open spread collar.`,
+    campaignSlugs: ["touch-the-sky", "vim"],
+    image: cdn("ec6c23230979516abbed3769281a3f8a588cd6b24aebb7c9a292518bf99c6b0b", "GTTW-VIM-TEE-FRONT.png"),
+    images: [
+      cdn("ec6c23230979516abbed3769281a3f8a588cd6b24aebb7c9a292518bf99c6b0b", "GTTW-VIM-TEE-FRONT.png"),
+      cdn("3236a138290cdbf3ca13d3134f17d1a50007dae61f3e324c9767bf8e64c86b2e", "GTTW-VIM-TEE-BACK.png"),
+    ],
+  },
+  {
+    slug: "vim-trunks",
+    name: "Vim Trunks",
+    collection: "S/S '21",
+    category: "Bottoms",
+    price: 50.0,
+    sizes: ["S", "M", "L", "XL"],
+    soldOut: true,
+    cargoUrl: "https://gttw.net/Vim-Shorts",
+    cargoSlug: "Vim-Shorts",
+    description: `100% Polyester satin trunks in black. Mid-rise. Three-pocket styling. Drawstring at elasticized waistband. Logo printed in white at front. Vim & The world is yours blimb logos all over print. Sold Out`,
+    campaignSlugs: ["touch-the-sky", "vim"],
+    image: cdn("9dcab2ff32fab4a60dfc1bc0448c3402aba3f553cfe1879b8668347e1be79dd5", "GTTW-VIM-SHORTS.png"),
+    images: [
+      cdn("9dcab2ff32fab4a60dfc1bc0448c3402aba3f553cfe1879b8668347e1be79dd5", "GTTW-VIM-SHORTS.png"),
+    ],
+  },
+  {
+    slug: "white-accra-tee",
+    name: "White Accra Tee",
     collection: "Essentials",
     category: "Tees",
+    price: 75.0,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    soldOut: false,
+    cargoUrl: "https://gttw.net/White-Accra-Tee",
+    cargoSlug: "White-Accra-Tee",
+    description: `Regular fit tee with round neck opening. Midweight 100% supima cotton. Contrast stiching. “ACCRA” patch on chest area. Text embroidered on the front. Logo printed on the back. Hand wash. Hang to dry.`,
     campaignSlugs: ["essentials"],
-    image: cdn(
-      "d597a147d44ad66963624f3b25f83af970dea3a313f7e55c8e082c43ef725b0c",
-      "Africa-Is-Not-For-Sale-Black-Front.png",
-    ),
+    image: cdn("198e2d69f055d82d943cba9d26787f954d2893e8653f4f6b47261b1cb7752e29", "GTTW-ACCRA-WHITE.png"),
+    images: [
+      cdn("198e2d69f055d82d943cba9d26787f954d2893e8653f4f6b47261b1cb7752e29", "GTTW-ACCRA-WHITE.png"),
+    ],
   },
+  {
+    slug: "africa-is-not-for-sale-tee-white",
+    name: "Africa Is Not For Sale Tee (White)",
+    collection: "Essentials",
+    category: "Tees",
+    price: 45.0,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    soldOut: true,
+    cargoUrl: "https://gttw.net/White-Africa-is-Not-For-Sale-Tee-1",
+    cargoSlug: "White-Africa-is-Not-For-Sale-Tee-1",
+    description: `Regular fit tee with round neck opening. Lightweight 100% supima cotton. Text printed on the front. Star logo printed on the back. True to size. Machine wash cold seperate, gentle cycle. Hang to dry. Sold Out`,
+    campaignSlugs: ["essentials"],
+    image: cdn("3fa46b7c9bfed2f7cb3d2ba27c82a04692b8fa8fecc389166f181c4eec914467", "Africa-Is-Not-For-Sale-White-Front.png"),
+    images: [
+      cdn("3fa46b7c9bfed2f7cb3d2ba27c82a04692b8fa8fecc389166f181c4eec914467", "Africa-Is-Not-For-Sale-White-Front.png"),
+    ],
+  },
+  {
+    slug: "womens-fisherman-denim-pants",
+    name: "Women's Fisherman Denim Pants",
+    collection: "S/S '21",
+    category: "Bottoms",
+    price: 180.0,
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+    soldOut: false,
+    cargoUrl: "https://gttw.net/Women-s-Fisherman-Denim-Pants",
+    cargoSlug: "Women-s-Fisherman-Denim-Pants",
+    description: `100% Cotton denim. Printed design throughout. Straight Leg. Tonal Stitching. Imported. Classic 5-pocket jeans. Fits true to size.`,
+    campaignSlugs: ["touch-the-sky", "fisherman"],
+    image: cdn("eb27fdcb945217fcff06753a2a052808ed33e71034259b6a2fadb4a8e8fb6d24", "GTTW-Fisherman-Denim-Pants-Front-2.png"),
+    images: [
+      cdn("eb27fdcb945217fcff06753a2a052808ed33e71034259b6a2fadb4a8e8fb6d24", "GTTW-Fisherman-Denim-Pants-Front-2.png"),
+      cdn("a9b6eece7ca5be45fed33dcf4962cb953572e20a4faf414ce312883600021b53", "GTTW-Fisherman-Denim-Pants-Back.png"),
+    ],
+  },
+  {
+    slug: "ghana-to-the-world-hoodie-yellow",
+    image: cdn("a4af47de3d33ac7a0fbcee4cda564926762e4201ebbb7b08472e508a1665ddc2", "Ghana-To-THe-World-Yellow-Front.png"),
+    name: "Ghana To The World Hoodie (Yellow)",
+    collection: "Essentials",
+    category: "Hoodies",
+    price: 75.0,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    soldOut: true,
+    cargoUrl: "https://gttw.net/Yellow-Ghana-To-The-World-Hoodie",
+    cargoSlug: "Yellow-Ghana-To-The-World-Hoodie",
+    description: `DETAILS: REGULAR FIT HOODIE. MID-WEIGHT 80% COTTON 20% POLYESTER. EMBROIDERED TEXT ON FRONT, PRINTED LOGO AT THE BACK FIT: TRUE TO SIZE CARE: MACHINE WASH COLD SEPARATE, GENTLE CYCLE. HANG TO DRY. Sold Out`,
+    campaignSlugs: ["essentials"],
+    images: [
+      cdn("a4af47de3d33ac7a0fbcee4cda564926762e4201ebbb7b08472e508a1665ddc2", "Ghana-To-THe-World-Yellow-Front.png"),
+    ],
+  }
 ];
 
 export type RadioEpisode = {
@@ -259,8 +441,8 @@ export const campaigns: Campaign[] = [
     story:
       "Core graphics and staples from the Essentials set on gttw.net — Africa Is Not For Sale, Ghana To The World tees and sweats.",
     image: cdn(
-      "1c7068501cfb7e10e6bb91ade4a816c033e3b4020eefd8a35bafb8e52c3c4b63",
-      "Ghana-To-The-World-Tee-Black-Front.png",
+      "66bfa31a42c4bb999503ac8f9b4cfcfd334be0a9c4989588e05fe2f7f78e76c1",
+      "GTTW-ACCRA-BLACK.png",
     ),
     stills: [
       cdn(
@@ -268,7 +450,16 @@ export const campaigns: Campaign[] = [
         "Africa-Is-Not-For-Sale-Black-Front.png",
       ),
     ],
-    productSlugs: ["ghana-to-the-world-tee-black", "africa-is-not-for-sale"],
+    productSlugs: [
+      "black-accra-tee",
+      "white-accra-tee",
+      "africa-is-not-for-sale-tee-black",
+      "africa-is-not-for-sale-tee-white",
+      "ghana-to-the-world-hoodie-black",
+      "ghana-to-the-world-hoodie-yellow",
+      "africa-to-the-world-hoodie",
+      "og-gttw-long-sleeve-tee",
+    ],
     lookSlugs: ["essentials-graphic"],
     radioEps: ["03"],
     shopFilter: "essentials",
@@ -295,6 +486,7 @@ export const campaigns: Campaign[] = [
       "gttw-benz-knit-sweater",
       "gttw-airways-knit-sweater",
       "fisherman-denim-jacket",
+      "mens-fisherman-denim-pants",
     ],
     lookSlugs: ["knit-travel", "fisherman-full"],
     radioEps: ["04"],
@@ -318,7 +510,7 @@ export const looks: Look[] = [
     season: "S/S ‘21",
     blurb: "Jacket + pants — the denim set from the shop.",
     image: cdn(
-      "f0f123c65ff602ff00006ae90c36373ca02c1955436bffcf19e2956244820395",
+      "b652497c757a6c21eba8e2efdaf9783a7592aacecaf92294d381c678b163cfa9",
       "GTTW_Fisherman-Denim_19_05_2021_Front.png",
     ),
     productSlugs: ["fisherman-denim-jacket", "mens-fisherman-denim-pants"],
@@ -329,7 +521,7 @@ export const looks: Look[] = [
     season: "S/S ‘21",
     blurb: "Vim Button Up Shirt with Vim Trunks.",
     image: cdn(
-      "558736e01c56ef85f454541ddcd0ebf473ba0940636f0b65527a2c33ae28b81f",
+      "ec6c23230979516abbed3769281a3f8a588cd6b24aebb7c9a292518bf99c6b0b",
       "GTTW-VIM-TEE-FRONT.png",
     ),
     productSlugs: ["vim-button-up-shirt", "vim-trunks"],
@@ -340,7 +532,7 @@ export const looks: Look[] = [
     season: "S/S ‘21",
     blurb: "Airways knit — named for the journey.",
     image: cdn(
-      "6d0df2f85e03e8be6dde69211955ba20a842d767a40c04460135748f95b2964c",
+      "3c615fff780f9566c02288401adde1c42f02390f965ee707aa1793ee27e9a1c3",
       "GTTW-PLANE-FRONT.png",
     ),
     productSlugs: ["gttw-airways-knit-sweater", "gttw-benz-knit-sweater"],
@@ -351,10 +543,10 @@ export const looks: Look[] = [
     season: "Essentials",
     blurb: "GTTW tee + Africa Is Not For Sale.",
     image: cdn(
-      "d597a147d44ad66963624f3b25f83af970dea3a313f7e55c8e082c43ef725b0c",
+      "f44c41589d4f7d0bc247b78650dc7018aed980f2661f8384ee1afcef9ea6563f",
       "Africa-Is-Not-For-Sale-Black-Front.png",
     ),
-    productSlugs: ["africa-is-not-for-sale", "ghana-to-the-world-tee-black"],
+    productSlugs: ["africa-is-not-for-sale-tee-black", "black-accra-tee"],
   },
 ];
 
@@ -364,15 +556,15 @@ export const homeCategories = [
     label: "Tees",
     href: "/shop?chapter=essentials",
     image: cdn(
-      "1c7068501cfb7e10e6bb91ade4a816c033e3b4020eefd8a35bafb8e52c3c4b63",
-      "Ghana-To-The-World-Tee-Black-Front.png",
+      "66bfa31a42c4bb999503ac8f9b4cfcfd334be0a9c4989588e05fe2f7f78e76c1",
+      "GTTW-ACCRA-BLACK.png",
     ),
   },
   {
     label: "Denim",
     href: "/shop?chapter=fisherman",
     image: cdn(
-      "f0f123c65ff602ff00006ae90c36373ca02c1955436bffcf19e2956244820395",
+      "b652497c757a6c21eba8e2efdaf9783a7592aacecaf92294d381c678b163cfa9",
       "GTTW_Fisherman-Denim_19_05_2021_Front.png",
     ),
   },
@@ -380,7 +572,7 @@ export const homeCategories = [
     label: "Knitwear",
     href: "/shop?chapter=knit",
     image: cdn(
-      "6d0df2f85e03e8be6dde69211955ba20a842d767a40c04460135748f95b2964c",
+      "3c615fff780f9566c02288401adde1c42f02390f965ee707aa1793ee27e9a1c3",
       "GTTW-PLANE-FRONT.png",
     ),
   },
@@ -442,7 +634,7 @@ export const filmStills = [
   },
 ] as const;
 
-export const categories = ["Tees", "Hoodies", "Sweatshirts"] as const;
+export const categories = ["Tees", "Hoodies", "Long sleeves", "Knitwear", "Outerwear", "Bottoms", "Tops"] as const;
 
 export const heroImage = campaigns[0].image;
 

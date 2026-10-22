@@ -4,11 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useCart } from "@/components/cart/CartProvider";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { brand, nav } from "@/lib/content";
 
 export function Header() {
   const pathname = usePathname();
+  const { count } = useCart();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -79,7 +81,17 @@ export function Header() {
               <Link href="/contact" className="nav-link">
                 Contact
               </Link>
+              <Link href="/cart" className="nav-link" data-active={pathname === "/cart" || undefined}>
+                Cart{count > 0 ? ` (${count})` : ""}
+              </Link>
             </nav>
+            <Link
+              href="/cart"
+              className="nav-link lg:hidden"
+              data-active={pathname === "/cart" || undefined}
+            >
+              Cart{count > 0 ? ` (${count})` : ""}
+            </Link>
             <ThemeToggle />
             <button
               type="button"
@@ -103,18 +115,21 @@ export function Header() {
               className="overflow-hidden border-t border-[var(--line)] lg:hidden"
             >
               <div className="flex flex-col gap-4 px-5 py-6">
-                {[...nav, { href: "/contact", label: "Contact" }, { href: "/journal", label: "Journal" }].map(
-                  (item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="font-display text-2xl"
-                      onClick={() => setOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  ),
-                )}
+                {[
+                  ...nav,
+                  { href: "/contact", label: "Contact" },
+                  { href: "/cart", label: count > 0 ? `Cart (${count})` : "Cart" },
+                  { href: "/journal", label: "Journal" },
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="font-display text-2xl"
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </div>
             </motion.nav>
           ) : null}

@@ -9,16 +9,24 @@ export const metadata: Metadata = {
   description: "GTTW collections — S/S ‘21, Essentials, Autumn/Winter ‘22.",
 };
 
-type Props = { searchParams: Promise<{ chapter?: string }> };
+type Props = {
+  searchParams: Promise<{ chapter?: string; category?: string }>;
+};
 
 export default async function ShopPage({ searchParams }: Props) {
-  const { chapter } = await searchParams;
+  const { chapter, category } = await searchParams;
   const activeCampaign = campaigns.find((c) => c.shopFilter === chapter);
-  const filtered = activeCampaign
+  let filtered = activeCampaign
     ? activeCampaign.productSlugs
         .map((s) => getProduct(s))
         .filter((p): p is NonNullable<typeof p> => Boolean(p))
     : products;
+
+  if (category) {
+    filtered = filtered.filter(
+      (p) => p.category.toLowerCase() === category.toLowerCase(),
+    );
+  }
 
   return (
     <div className="mx-auto max-w-[1400px] px-5 pt-10 pb-20 md:px-8 md:pt-14 md:pb-28">
@@ -29,12 +37,12 @@ export default async function ShopPage({ searchParams }: Props) {
         </h1>
         <p className="mt-4 max-w-xl text-sm text-[var(--fg-soft)]">
           {activeCampaign
-            ? `${activeCampaign.season} — filtered from the live GTTW shop.`
-            : "Autumn/Winter ‘22 · Essentials · S/S ‘21 — names from gttw.net."}
+            ? `${activeCampaign.season} — full GTTW Cargo inventory for this chapter.`
+            : `${products.length} pieces from gttw.net — S/S ‘21, Essentials, and more.`}
         </p>
-        {activeCampaign ? (
+        {activeCampaign || category ? (
           <Link href="/shop" className="nav-link mt-4 inline-block">
-            Clear filter
+            Clear filters
           </Link>
         ) : null}
       </Reveal>
@@ -53,7 +61,15 @@ export default async function ShopPage({ searchParams }: Props) {
         ))}
         <span className="text-[var(--line)]">|</span>
         {categories.map((c) => (
-          <span key={c}>{c}</span>
+          <Link
+            key={c}
+            href={`/shop?category=${encodeURIComponent(c)}`}
+            className={`hover:text-[var(--fg)] ${
+              category?.toLowerCase() === c.toLowerCase() ? "text-[var(--fg)]" : ""
+            }`}
+          >
+            {c}
+          </Link>
         ))}
       </div>
 
@@ -66,7 +82,7 @@ export default async function ShopPage({ searchParams }: Props) {
       </div>
 
       <p className="mt-16 text-[0.65rem] tracking-[0.12em] text-[var(--mist)] uppercase">
-        ALL SALES FINAL · Prices not published on gttw.net crawl
+        ALL SALES FINAL · Checkout on gttw.net Cargo shop
       </p>
     </div>
   );

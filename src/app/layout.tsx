@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Figtree } from "next/font/google";
+import { CartProvider } from "@/components/cart/CartProvider";
 import { SiteShell } from "@/components/SiteShell";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import "./globals.css";
@@ -41,7 +42,9 @@ export default function RootLayout({
       </head>
       <body className={`${display.variable} ${body.variable} antialiased`}>
         <ThemeProvider>
-          <SiteShell>{children}</SiteShell>
+          <CartProvider>
+            <SiteShell>{children}</SiteShell>
+          </CartProvider>
         </ThemeProvider>
       </body>
     </html>
