@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { DM_Sans, Syne } from "next/font/google";
+import { Bebas_Neue, Public_Sans } from "next/font/google";
 import { SiteShell } from "@/components/SiteShell";
 import "./globals.css";
 
-const display = Syne({
+const display = Bebas_Neue({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: "400",
 });
 
-const body = DM_Sans({
+const body = Public_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600"],

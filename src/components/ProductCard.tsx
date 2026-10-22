@@ -23,7 +23,7 @@ export function ProductCard({ product }: { product: Product }) {
             {product.collection}
           </p>
         </div>
-        <span className="text-[0.65rem] tracking-[0.14em] text-[var(--gold)] uppercase opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <span className="text-[0.65rem] tracking-[0.14em] text-[var(--indigo)] uppercase opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           View
         </span>
       </div>

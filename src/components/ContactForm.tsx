@@ -31,7 +31,7 @@ export function ContactForm() {
         <input
           required
           name="name"
-          className="mt-2 w-full border-b border-[var(--line)] bg-transparent py-3 outline-none transition-colors focus:border-[var(--gold)]"
+          className="mt-2 w-full border-b border-[var(--line)] bg-transparent py-3 outline-none transition-colors focus:border-[var(--indigo)]"
         />
       </label>
       <label className="block">
@@ -42,7 +42,7 @@ export function ContactForm() {
           required
           type="email"
           name="email"
-          className="mt-2 w-full border-b border-[var(--line)] bg-transparent py-3 outline-none transition-colors focus:border-[var(--gold)]"
+          className="mt-2 w-full border-b border-[var(--line)] bg-transparent py-3 outline-none transition-colors focus:border-[var(--indigo)]"
         />
       </label>
       <label className="block">
@@ -53,10 +53,10 @@ export function ContactForm() {
           required
           name="message"
           rows={5}
-          className="mt-2 w-full resize-y border-b border-[var(--line)] bg-transparent py-3 outline-none transition-colors focus:border-[var(--gold)]"
+          className="mt-2 w-full resize-y border-b border-[var(--line)] bg-transparent py-3 outline-none transition-colors focus:border-[var(--indigo)]"
         />
       </label>
-      <button type="submit" className="cta cta-gold mt-4">
+      <button type="submit" className="cta cta-indigo mt-4">
         Send note
       </button>
     </form>
