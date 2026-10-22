@@ -318,17 +318,191 @@ export const products: Product[] = [
   }
 ];
 
+export type RadioSeries = "last-releases" | "sessions" | "archives";
+
 export type RadioEpisode = {
   ep: string;
+  slug: string;
   title: string;
+  artist: string;
+  series: RadioSeries;
+  description: string;
+  artwork: string;
+  duration: string;
+  dateLabel: string;
+  /** Real audio not on crawl — UI stays honest */
+  audioAvailable: boolean;
+  isPlaceholder?: boolean;
+  featured?: boolean;
+  campaignSlug?: string;
 };
 
+const radioArt = {
+  a: cdn(
+    "4c27be77c002ef200523e8f6f2ea50dba59a4ec65f0f986d029afb96d9400a93",
+    "19122020.jpg",
+  ),
+  b: cdn(
+    "c808b52bff0c3b64fab0a3f6c73ea166dd48cb3768fe1bca6bcc39d025809086",
+    "_V0A1693.jpg",
+  ),
+  c: cdn(
+    "d062ef87d4d0dfccb24b31bc10ff72241b518b7f7d323176d46aeb31a72dab9a",
+    "_DSC8449k-2.jpg",
+  ),
+  d: cdn(
+    "58fde600030eeb26e5f47bc3cc723ff27008d4ca9e94cfb8a5f30ea66cc8488e",
+    "_DSC8521-copy-2.jpg",
+  ),
+  e: cdn(
+    "50e239fd696d8b8ee0be5850cc0b433d5c73b0064742f4e2f04a5397bad9494e",
+    "1DA4930F-DD7F-433A-B869-E08D21C506B9.JPG",
+  ),
+  f: cdn(
+    "21163236459d05a225c59136becbc95e4fa6e5ab042998179e5c31a512ac957b",
+    "E15FE768-73A3-46B8-999D-0588D7F0508A-2.jpg",
+  ),
+  g: cdn(
+    "683a42bae28fd6afa3319a2bcc4f134a2d338a46019eadeed82da92cf406ab6f",
+    "EfUkW5eXkAAPBue.jpeg",
+  ),
+  h: cdn(
+    "36ab7ac04ac9dd403ae7f3fd4216b971300631b06b8fd1cff8d8ce90cd0bc181",
+    "9DF2B719-4619-428E-86F7-AEAFE4C38180.JPG",
+  ),
+} as const;
+
+/** GTTW Radio catalogue — real gttw.net episodes + honest placeholders */
 export const radio: RadioEpisode[] = [
-  { ep: "01", title: "GFLAMEE" },
-  { ep: "02", title: "DJ Mohogany" },
-  { ep: "03", title: "Blaq Pages" },
-  { ep: "04", title: "Dj Kwamzy" },
+  {
+    ep: "01",
+    slug: "ep-01-gflamee",
+    title: "GFLAMEE",
+    artist: "GFLAMEE",
+    series: "last-releases",
+    description:
+      "GTTW Radio Episode 01 — mix listed on gttw.net. A fire opener for the Accra-to-the-world frequency.",
+    artwork: radioArt.a,
+    duration: "—",
+    dateLabel: "Listed on gttw.net",
+    audioAvailable: false,
+    featured: true,
+    campaignSlug: "touch-the-sky",
+  },
+  {
+    ep: "02",
+    slug: "ep-02-dj-mohogany",
+    title: "DJ Mohogany",
+    artist: "DJ Mohogany",
+    series: "last-releases",
+    description:
+      "GTTW Radio Episode 02 — mix listed on gttw.net. Warm selections for the Fisherman chapter night.",
+    artwork: radioArt.e,
+    duration: "—",
+    dateLabel: "Listed on gttw.net",
+    audioAvailable: false,
+    campaignSlug: "fisherman",
+  },
+  {
+    ep: "03",
+    slug: "ep-03-blaq-pages",
+    title: "Blaq Pages",
+    artist: "Blaq Pages",
+    series: "sessions",
+    description:
+      "GTTW Radio Episode 03 — mix listed on gttw.net. Pages turning between knit layers and night drives.",
+    artwork: radioArt.f,
+    duration: "—",
+    dateLabel: "Listed on gttw.net",
+    audioAvailable: false,
+    campaignSlug: "knit-airways",
+  },
+  {
+    ep: "04",
+    slug: "ep-04-dj-kwamzy",
+    title: "Dj Kwamzy",
+    artist: "Dj Kwamzy",
+    series: "sessions",
+    description:
+      "GTTW Radio Episode 04 — mix listed on gttw.net. Closing energy for the Essentials shelf.",
+    artwork: radioArt.g,
+    duration: "—",
+    dateLabel: "Listed on gttw.net",
+    audioAvailable: false,
+    campaignSlug: "essentials",
+  },
+  {
+    ep: "05",
+    slug: "ep-05-placeholder",
+    title: "Episode 05 — Placeholder",
+    artist: "TBA selector",
+    series: "archives",
+    description:
+      "Placeholder slot for an upcoming GTTW Radio session. Artwork and title are standing in until the brand publishes the mix.",
+    artwork: radioArt.b,
+    duration: "45:00",
+    dateLabel: "Coming soon",
+    audioAvailable: false,
+    isPlaceholder: true,
+  },
+  {
+    ep: "06",
+    slug: "ep-06-placeholder",
+    title: "Episode 06 — Placeholder",
+    artist: "TBA selector",
+    series: "archives",
+    description:
+      "Placeholder archive entry — keeps the Radio system complete while real audio files remain off crawl.",
+    artwork: radioArt.c,
+    duration: "52:00",
+    dateLabel: "Coming soon",
+    audioAvailable: false,
+    isPlaceholder: true,
+  },
+  {
+    ep: "07",
+    slug: "ep-07-placeholder",
+    title: "Episode 07 — Placeholder",
+    artist: "TBA selector",
+    series: "sessions",
+    description:
+      "Placeholder session — mute stub player for UX completeness; no invented tracklist or audio.",
+    artwork: radioArt.d,
+    duration: "38:00",
+    dateLabel: "Coming soon",
+    audioAvailable: false,
+    isPlaceholder: true,
+  },
+  {
+    ep: "08",
+    slug: "ep-08-placeholder",
+    title: "Episode 08 — Placeholder",
+    artist: "TBA selector",
+    series: "archives",
+    description:
+      "Placeholder archive mix card. Replace with a published GTTW Radio episode when available.",
+    artwork: radioArt.h,
+    duration: "60:00",
+    dateLabel: "Coming soon",
+    audioAvailable: false,
+    isPlaceholder: true,
+  },
 ];
+
+export const radioSeriesNav = [
+  { id: "all" as const, label: "Home" },
+  { id: "last-releases" as const, label: "Last releases" },
+  { id: "sessions" as const, label: "Sessions" },
+  { id: "archives" as const, label: "Archives" },
+];
+
+export function getRadioEpisode(slug: string) {
+  return radio.find((r) => r.slug === slug || r.ep === slug);
+}
+
+export function featuredRadio() {
+  return radio.find((r) => r.featured) ?? radio[0];
+}
 
 export type Campaign = {
   slug: string;
@@ -998,4 +1172,9 @@ export function radioForCampaign(slug: string) {
   return c.radioEps
     .map((ep) => radio.find((r) => r.ep === ep))
     .filter((r): r is RadioEpisode => Boolean(r));
+}
+
+export function radioBySeries(series: RadioSeries | "all") {
+  if (series === "all") return radio;
+  return radio.filter((r) => r.series === series);
 }

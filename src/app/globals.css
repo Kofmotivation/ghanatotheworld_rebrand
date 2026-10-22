@@ -451,6 +451,29 @@ a {
   padding: 0.45rem 1rem;
 }
 
+.radio-mix-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem 1rem;
+}
+
+@media (min-width: 900px) {
+  .radio-mix-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.75rem 1.75rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .radio-mix-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 3rem 2rem;
+  }
+}
+
 .radio-player {
   border: 1px solid var(--line);
   background: var(--bg-elevated);
@@ -458,6 +481,10 @@ a {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.radio-player--compact {
+  padding: 0.75rem 0.9rem;
 }
 
 .radio-player button {
