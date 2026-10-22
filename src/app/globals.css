@@ -99,6 +99,35 @@ a {
   isolation: isolate;
   overflow-x: clip;
   min-height: 100vh;
+  --header-offset: 7.5rem;
+}
+
+.site-shell--journal {
+  background: #050506;
+}
+
+.site-shell--journal main {
+  background: #050506;
+}
+
+.journal-globe-canvas {
+  display: block;
+  cursor: grab;
+}
+
+.journal-globe-canvas:active {
+  cursor: grabbing;
+}
+
+.globedots-tooltip {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(12, 12, 14, 0.92) !important;
+  color: #f4f0e8 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.35rem 0.55rem !important;
 }
 
 .nav-link {

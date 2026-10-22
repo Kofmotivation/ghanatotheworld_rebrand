@@ -30,6 +30,7 @@ export function Header() {
   }, [shopOpen]);
 
   const utility = [
+    { href: "/journal", label: "Journal" },
     { href: "/radio", label: "Radio" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
@@ -219,6 +220,15 @@ export function Header() {
                         onClick={() => setShopOpen(false)}
                       >
                         Film
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/journal"
+                        className="nav-link !text-[0.8rem]"
+                        onClick={() => setShopOpen(false)}
+                      >
+                        Journal
                       </Link>
                     </li>
                   </ul>
