@@ -6,53 +6,47 @@ import { Reveal } from "@/components/Reveal";
 import { campaigns } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Campaigns",
-  description: "GTTW campaign chapters — Touch The Sky, Fisherman, Essentials, A/W ‘22.",
+  title: "Collections",
+  description: "GTTW collections — Touch The Sky, Fisherman, Essentials, A/W ‘22.",
 };
 
 export default function CampaignsIndexPage() {
   return (
-    <div className="pt-24 md:pt-28">
-      <div className="mx-auto max-w-[1440px] px-5 md:px-8">
+    <div className="pt-6 md:pt-8">
+      <div className="mx-auto max-w-[1400px] px-5 md:px-8">
         <Reveal>
-          <p className="nav-link !text-[var(--indigo)]">Campaign House</p>
-          <h1 className="font-display mt-3 text-[clamp(3rem,8vw,6.5rem)] leading-[0.9] tracking-wide">
-            Campaigns
+          <p className="eyebrow">Collections</p>
+          <h1 className="font-display mt-3 text-[clamp(2.8rem,7vw,4.8rem)] leading-[1.05]">
+            Season archive
           </h1>
-          <p className="mt-5 max-w-xl text-[var(--mist)]">
-            Named seasons as cinema. Walk the chapter — then shop the look.
+          <p className="mt-4 max-w-xl text-sm text-[var(--fg-soft)]">
+            Named drops from gttw.net — shop the lookbook, then the pieces.
           </p>
         </Reveal>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-8">
         <ChapterScrubber />
       </div>
 
-      <div className="mx-auto mt-12 grid max-w-[1440px] gap-6 px-5 pb-24 md:grid-cols-2 md:px-8 lg:grid-cols-3">
+      <div className="mx-auto mt-10 grid max-w-[1400px] gap-5 px-5 pb-20 sm:grid-cols-2 md:px-8 lg:grid-cols-3">
         {campaigns.map((c, i) => (
-          <Reveal key={c.slug} delay={(i % 3) * 0.05}>
-            <Link href={`/campaigns/${c.slug}`} className="campaign-card group block">
-              <div className="relative aspect-[3/4] overflow-hidden bg-[var(--ink-soft)]">
+          <Reveal key={c.slug} delay={(i % 3) * 0.04}>
+            <Link href={`/campaigns/${c.slug}`} className="group block">
+              <div className="relative aspect-[3/4] overflow-hidden bg-[var(--bg-muted)]">
                 <Image
                   src={c.image}
                   alt={c.title}
                   fill
                   sizes="(max-width:768px) 100vw, 33vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(11,11,12,0.9)] via-transparent to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <p className="chapter-num text-xs tracking-[0.2em]">
-                    {c.number}
-                  </p>
-                  <h2 className="font-display mt-1 text-3xl tracking-wide md:text-4xl">
-                    {c.title}
-                  </h2>
-                  <p className="mt-1 text-xs tracking-[0.14em] text-[var(--mist)] uppercase">
-                    {c.season}
-                  </p>
-                </div>
+              </div>
+              <div className="mt-3">
+                <p className="text-[0.65rem] tracking-[0.12em] text-[var(--mist)] uppercase">
+                  {c.number} · {c.season}
+                </p>
+                <h2 className="font-display mt-1 text-2xl">{c.title}</h2>
               </div>
             </Link>
           </Reveal>

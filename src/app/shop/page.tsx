@@ -14,7 +14,6 @@ type Props = { searchParams: Promise<{ chapter?: string }> };
 export default async function ShopPage({ searchParams }: Props) {
   const { chapter } = await searchParams;
   const activeCampaign = campaigns.find((c) => c.shopFilter === chapter);
-
   const filtered = activeCampaign
     ? activeCampaign.productSlugs
         .map((s) => getProduct(s))
@@ -22,56 +21,53 @@ export default async function ShopPage({ searchParams }: Props) {
     : products;
 
   return (
-    <div className="mx-auto max-w-[1440px] px-5 pt-28 pb-20 md:px-8 md:pt-32 md:pb-28">
+    <div className="mx-auto max-w-[1400px] px-5 pt-10 pb-20 md:px-8 md:pt-14 md:pb-28">
       <Reveal>
-        <p className="nav-link !text-[var(--indigo)]">Shop</p>
-        <h1 className="font-display mt-3 text-[clamp(3rem,8vw,6rem)] leading-[0.9] tracking-wide">
-          {activeCampaign ? activeCampaign.title : "Collections"}
+        <p className="eyebrow">Shop</p>
+        <h1 className="font-display mt-3 text-[clamp(2.8rem,7vw,4.5rem)] leading-[1.05]">
+          {activeCampaign ? activeCampaign.title : "All products"}
         </h1>
-        <p className="mt-5 max-w-xl text-[var(--mist)]">
+        <p className="mt-4 max-w-xl text-sm text-[var(--fg-soft)]">
           {activeCampaign
-            ? `Chapter filter — ${activeCampaign.season}.`
-            : "Autumn/Winter ‘22 · Essentials · S/S ‘21 — product names from the live GTTW shop."}
+            ? `${activeCampaign.season} — filtered from the live GTTW shop.`
+            : "Autumn/Winter ‘22 · Essentials · S/S ‘21 — names from gttw.net."}
         </p>
         {activeCampaign ? (
-          <Link
-            href="/shop"
-            className="nav-link mt-4 inline-block !text-[var(--bone)]"
-          >
+          <Link href="/shop" className="nav-link mt-4 inline-block">
             Clear filter
           </Link>
         ) : null}
       </Reveal>
 
-      <div className="mt-10 flex flex-wrap gap-x-5 gap-y-2 border-y border-[var(--line)] py-4 text-xs tracking-[0.14em] text-[var(--mist)] uppercase">
+      <div className="mt-10 flex flex-wrap gap-x-5 gap-y-2 border-y border-[var(--line)] py-4 text-[0.68rem] tracking-[0.12em] text-[var(--mist)] uppercase">
         {campaigns.map((c) => (
           <Link
             key={c.slug}
             href={`/shop?chapter=${c.shopFilter}`}
-            className={`transition-colors hover:text-[var(--bone)] ${
-              chapter === c.shopFilter ? "text-[var(--bone)]" : ""
+            className={`hover:text-[var(--fg)] ${
+              chapter === c.shopFilter ? "text-[var(--fg)]" : ""
             }`}
           >
             {c.title}
           </Link>
         ))}
-        <span className="text-[var(--indigo)]">·</span>
+        <span className="text-[var(--line)]">|</span>
         {categories.map((c) => (
           <span key={c}>{c}</span>
         ))}
       </div>
 
-      <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-8 lg:grid-cols-4">
+      <div className="mt-12 grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4">
         {filtered.map((p, i) => (
-          <Reveal key={p.slug} delay={(i % 4) * 0.04}>
+          <Reveal key={p.slug} delay={(i % 4) * 0.03}>
             <ProductCard product={p} />
           </Reveal>
         ))}
       </div>
 
-      <Reveal className="mt-16 text-xs tracking-[0.14em] text-[var(--mist)] uppercase">
+      <p className="mt-16 text-[0.65rem] tracking-[0.12em] text-[var(--mist)] uppercase">
         ALL SALES FINAL · Prices not published on gttw.net crawl
-      </Reveal>
+      </p>
     </div>
   );
 }

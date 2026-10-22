@@ -12,51 +12,47 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <div className="border border-[var(--line)] p-8 md:p-10">
+      <div className="border border-[var(--line)] bg-[var(--bg-elevated)] p-8">
         <p className="font-display text-2xl">Message noted</p>
-        <p className="mt-3 text-sm text-[var(--mist)]">
-          Thanks — this prototype captures your note locally. Wire a real inbox
-          when ready.
+        <p className="mt-3 text-sm text-[var(--fg-soft)]">
+          Thanks — this prototype captures your note locally.
         </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5 border border-[var(--line)] p-6 md:p-8">
+    <form
+      onSubmit={onSubmit}
+      className="space-y-5 border border-[var(--line)] bg-[var(--bg-elevated)] p-6 md:p-8"
+    >
       <label className="block">
-        <span className="text-xs tracking-[0.14em] text-[var(--mist)] uppercase">
-          Name
-        </span>
+        <span className="eyebrow">Name</span>
         <input
           required
           name="name"
-          className="mt-2 w-full border-b border-[var(--line)] bg-transparent py-3 outline-none transition-colors focus:border-[var(--indigo)]"
+          className="mt-2 w-full border-b border-[var(--line)] bg-transparent py-3 outline-none transition-colors focus:border-[var(--fg)]"
         />
       </label>
       <label className="block">
-        <span className="text-xs tracking-[0.14em] text-[var(--mist)] uppercase">
-          Email
-        </span>
+        <span className="eyebrow">Email</span>
         <input
           required
           type="email"
           name="email"
-          className="mt-2 w-full border-b border-[var(--line)] bg-transparent py-3 outline-none transition-colors focus:border-[var(--indigo)]"
+          className="mt-2 w-full border-b border-[var(--line)] bg-transparent py-3 outline-none transition-colors focus:border-[var(--fg)]"
         />
       </label>
       <label className="block">
-        <span className="text-xs tracking-[0.14em] text-[var(--mist)] uppercase">
-          Message
-        </span>
+        <span className="eyebrow">Message</span>
         <textarea
           required
           name="message"
           rows={5}
-          className="mt-2 w-full resize-y border-b border-[var(--line)] bg-transparent py-3 outline-none transition-colors focus:border-[var(--indigo)]"
+          className="mt-2 w-full resize-y border-b border-[var(--line)] bg-transparent py-3 outline-none transition-colors focus:border-[var(--fg)]"
         />
       </label>
-      <button type="submit" className="cta cta-indigo mt-4">
+      <button type="submit" className="cta cta-filled mt-2">
         Send note
       </button>
     </form>

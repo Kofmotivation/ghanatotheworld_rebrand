@@ -7,7 +7,7 @@ import type { Product } from "@/lib/content";
 export function ProductCard({ product }: { product: Product }) {
   return (
     <Link href="/shop" className="product-tile group block">
-      <div className="relative aspect-[4/5] overflow-hidden bg-[var(--ink-soft)]">
+      <div className="relative aspect-[4/5] overflow-hidden bg-[var(--bg-muted)]">
         <Image
           src={product.image}
           alt={product.name}
@@ -16,16 +16,11 @@ export function ProductCard({ product }: { product: Product }) {
           className="object-cover object-center"
         />
       </div>
-      <div className="mt-4 flex items-start justify-between gap-3">
-        <div>
-          <p className="text-sm leading-snug">{product.name}</p>
-          <p className="mt-1 text-xs tracking-[0.12em] text-[var(--mist)] uppercase">
-            {product.collection}
-          </p>
-        </div>
-        <span className="text-[0.65rem] tracking-[0.14em] text-[var(--indigo)] uppercase opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          View
-        </span>
+      <div className="mt-3 space-y-1">
+        <p className="text-[0.65rem] tracking-[0.12em] text-[var(--mist)] uppercase">
+          {product.collection}
+        </p>
+        <p className="text-sm leading-snug">{product.name}</p>
       </div>
     </Link>
   );

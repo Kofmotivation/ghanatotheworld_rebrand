@@ -15,14 +15,13 @@ export const brand = {
   },
 } as const;
 
-/** Campaign House nav */
+/** Clean commerce nav — Deadly Ponies–inspired rhythm */
 export const nav = [
-  { href: "/campaigns", label: "Campaigns" },
   { href: "/shop", label: "Shop" },
-  { href: "/looks", label: "Looks" },
-  { href: "/film", label: "Film" },
+  { href: "/campaigns", label: "Collections" },
+  { href: "/looks", label: "Lookbook" },
   { href: "/radio", label: "Radio" },
-  { href: "/about", label: "Brand" },
+  { href: "/about", label: "About" },
 ] as const;
 
 export type Product = {
@@ -139,8 +138,6 @@ export const products: Product[] = [
 export type RadioEpisode = {
   ep: string;
   title: string;
-  /** Honest note: pairing is editorial from available mixes on gttw.net — no official soundtrack credits published */
-  note?: string;
 };
 
 export const radio: RadioEpisode[] = [
@@ -161,7 +158,6 @@ export type Campaign = {
   stills: string[];
   productSlugs: string[];
   lookSlugs: string[];
-  /** Radio episodes paired to this chapter (curatorial; sparse if few mixes) */
   radioEps: string[];
   shopFilter: string;
 };
@@ -361,6 +357,42 @@ export const looks: Look[] = [
     productSlugs: ["africa-is-not-for-sale", "ghana-to-the-world-tee-black"],
   },
 ];
+
+/** Category tiles on home — DP-style entry grid */
+export const homeCategories = [
+  {
+    label: "Tees",
+    href: "/shop?chapter=essentials",
+    image: cdn(
+      "1c7068501cfb7e10e6bb91ade4a816c033e3b4020eefd8a35bafb8e52c3c4b63",
+      "Ghana-To-The-World-Tee-Black-Front.png",
+    ),
+  },
+  {
+    label: "Denim",
+    href: "/shop?chapter=fisherman",
+    image: cdn(
+      "f0f123c65ff602ff00006ae90c36373ca02c1955436bffcf19e2956244820395",
+      "GTTW_Fisherman-Denim_19_05_2021_Front.png",
+    ),
+  },
+  {
+    label: "Knitwear",
+    href: "/shop?chapter=knit",
+    image: cdn(
+      "6d0df2f85e03e8be6dde69211955ba20a842d767a40c04460135748f95b2964c",
+      "GTTW-PLANE-FRONT.png",
+    ),
+  },
+  {
+    label: "Lookbook",
+    href: "/looks",
+    image: cdn(
+      "c808b52bff0c3b64fab0a3f6c73ea166dd48cb3768fe1bca6bcc39d025809086",
+      "_V0A1693.jpg",
+    ),
+  },
+] as const;
 
 export const journalEntries = [
   {

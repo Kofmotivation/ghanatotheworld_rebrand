@@ -10,23 +10,23 @@ export function RadioDropPairing({
   episodes: RadioEpisode[];
 }) {
   return (
-    <section className="mx-auto max-w-[1440px] px-5 py-16 md:px-8 md:py-20">
+    <section className="mx-auto max-w-[1400px] px-5 py-16 md:px-8 md:py-20">
       <Reveal>
-        <p className="nav-link !text-[var(--indigo)]">Radio × Drop</p>
-        <h2 className="font-display mt-3 text-4xl tracking-wide md:text-5xl">
+        <p className="eyebrow">Radio × Collection</p>
+        <h2 className="font-display mt-3 text-3xl md:text-4xl">
           Soundtrack · {campaign.title}
         </h2>
-        <p className="mt-4 max-w-xl text-sm leading-relaxed text-[var(--mist)]">
-          GTTW Radio mixes from gttw.net, paired to this chapter. Official
+        <p className="mt-4 max-w-xl text-sm leading-relaxed text-[var(--fg-soft)]">
+          GTTW Radio mixes from gttw.net, paired to this collection. Official
           soundtrack credits were not published — pairing is editorial from the
-          available episode list. Play inline without leaving the campaign.
+          available episode list.
         </p>
       </Reveal>
 
       {episodes.length === 0 ? (
-        <Reveal className="mt-10 border border-[var(--line)] p-6 text-sm text-[var(--mist)]">
-          No radio mixes paired to this chapter yet. See the full{" "}
-          <a href="/radio" className="text-[var(--bone)] underline">
+        <Reveal className="mt-10 border border-[var(--line)] bg-[var(--bg-elevated)] p-6 text-sm text-[var(--fg-soft)]">
+          No radio mixes paired yet. See the{" "}
+          <a href="/radio" className="underline">
             Radio archive
           </a>
           .
@@ -34,7 +34,7 @@ export function RadioDropPairing({
       ) : (
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           {episodes.map((ep, i) => (
-            <Reveal key={ep.ep} delay={i * 0.06}>
+            <Reveal key={ep.ep} delay={i * 0.05}>
               <RadioPlayer episode={ep} />
             </Reveal>
           ))}

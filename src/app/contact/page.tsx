@@ -11,24 +11,23 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-[1440px] px-5 pt-28 pb-20 md:px-8 md:pt-32 md:pb-28">
+    <div className="mx-auto max-w-[1400px] px-5 pt-10 pb-20 md:px-8 md:pt-14 md:pb-28">
       <div className="grid gap-14 lg:grid-cols-2">
         <Reveal>
-          <p className="nav-link !text-[var(--indigo)]">Contact</p>
-          <h1 className="font-display mt-3 text-[clamp(2.8rem,6vw,5rem)] leading-[0.9] tracking-wide">
-            Reach GTTW
+          <p className="eyebrow">Contact</p>
+          <h1 className="font-display mt-3 text-[clamp(2.6rem,6vw,4rem)] leading-[1.05]">
+            Get in touch
           </h1>
-          <p className="mt-6 max-w-md text-[var(--mist)]">
-            No public email on gttw.net. Connect on social, or leave a note —
-            inbox wiring awaits brand input.
+          <p className="mt-5 max-w-md text-sm text-[var(--fg-soft)]">
+            No public email on gttw.net. Connect on social, or leave a note.
           </p>
-          <ul className="mt-10 space-y-4 text-sm">
+          <ul className="mt-10 space-y-3 text-sm">
             <li>
               <a
                 href={brand.socials.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="nav-link !text-[var(--bone)]"
+                className="hover:text-[var(--accent)]"
               >
                 Instagram @ghanatotheworld
               </a>
@@ -38,22 +37,22 @@ export default function ContactPage() {
                 href={brand.socials.twitter}
                 target="_blank"
                 rel="noreferrer"
-                className="nav-link !text-[var(--bone)]"
+                className="hover:text-[var(--accent)]"
               >
                 Twitter / X @ghanatotheworld
               </a>
             </li>
             <li>
-              <Link href="/campaigns" className="nav-link !text-[var(--bone)]">
-                Campaigns
+              <Link href="/shop" className="hover:text-[var(--accent)]">
+                Shop
               </Link>
             </li>
           </ul>
-          <p className="mt-12 text-xs tracking-[0.14em] text-[var(--mist)] uppercase">
+          <p className="mt-12 text-[0.65rem] tracking-[0.12em] text-[var(--mist)] uppercase">
             {brand.policy}
           </p>
         </Reveal>
-        <Reveal delay={0.08}>
+        <Reveal delay={0.06}>
           <ContactForm />
         </Reveal>
       </div>
