@@ -207,6 +207,75 @@ a {
   height: 100%;
 }
 
+/* Lookbook gallery index — HOE blogs/gallery cover rhythm */
+.gallery-index {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .gallery-index {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.gallery-index-cell {
+  border-right: 1px solid var(--gridline);
+  border-bottom: 1px solid var(--gridline);
+  margin-right: -1px;
+  margin-bottom: -1px;
+}
+
+.gallery-cover {
+  display: block;
+  height: 100%;
+}
+
+/* Dedicated collection gallery masonry */
+.lookbook-masonry {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(240px, 42vw);
+}
+
+@media (min-width: 768px) {
+  .lookbook-masonry {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-auto-rows: minmax(220px, 28vw);
+  }
+
+  .lookbook-masonry-cell--standard {
+    grid-column: span 2;
+  }
+
+  .lookbook-masonry-cell--tall {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .lookbook-masonry-cell--wide {
+    grid-column: span 4;
+  }
+}
+
+.lookbook-masonry-cell {
+  border-right: 1px solid var(--gridline);
+  border-bottom: 1px solid var(--gridline);
+  margin-right: -1px;
+  margin-bottom: -1px;
+  min-height: 260px;
+}
+
+.lookbook-masonry-cell figure {
+  min-height: inherit;
+}
+
 .collection-tile-meta {
   background: linear-gradient(
     180deg,

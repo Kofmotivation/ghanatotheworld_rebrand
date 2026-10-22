@@ -550,6 +550,327 @@ export const looks: Look[] = [
   },
 ];
 
+/** Lookbook galleries — one dedicated image set per collection (HOE Gallery rhythm) */
+export type LookbookGallery = {
+  slug: string;
+  title: string;
+  season: string;
+  tagline: string;
+  cover: string;
+  images: { src: string; alt: string }[];
+  productSlugs: string[];
+  shopFilter: string;
+};
+
+export const lookbookGalleries: LookbookGallery[] = [
+  {
+    slug: "touch-the-sky",
+    title: "Touch The Sky",
+    season: "S/S ‘21",
+    tagline: "The SS21 drop — airborne stills from the campaign.",
+    cover: cdn(
+      "4c27be77c002ef200523e8f6f2ea50dba59a4ec65f0f986d029afb96d9400a93",
+      "19122020.jpg",
+    ),
+    images: [
+      {
+        src: cdn(
+          "4c27be77c002ef200523e8f6f2ea50dba59a4ec65f0f986d029afb96d9400a93",
+          "19122020.jpg",
+        ),
+        alt: "Touch The Sky campaign portrait",
+      },
+      {
+        src: cdn(
+          "912eff25de2ac9d3b71fe26f214af24dda73cb128270d378416d8cc487c2c28c",
+          "191220204.jpg",
+        ),
+        alt: "Touch The Sky editorial still",
+      },
+      {
+        src: cdn(
+          "c808b52bff0c3b64fab0a3f6c73ea166dd48cb3768fe1bca6bcc39d025809086",
+          "_V0A1693.jpg",
+        ),
+        alt: "Campaign portrait — Touch The Sky era",
+      },
+      {
+        src: cdn(
+          "d062ef87d4d0dfccb24b31bc10ff72241b518b7f7d323176d46aeb31a72dab9a",
+          "_DSC8449k-2.jpg",
+        ),
+        alt: "Street editorial — SS21",
+      },
+      {
+        src: cdn(
+          "21163236459d05a225c59136becbc95e4fa6e5ab042998179e5c31a512ac957b",
+          "E15FE768-73A3-46B8-999D-0588D7F0508A-2.jpg",
+        ),
+        alt: "Lookbook frame — SS21",
+      },
+      {
+        src: cdn(
+          "58fde600030eeb26e5f47bc3cc723ff27008d4ca9e94cfb8a5f30ea66cc8488e",
+          "_DSC8521-copy-2.jpg",
+        ),
+        alt: "Fashion still — SS21",
+      },
+    ],
+    productSlugs: [
+      "fisherman-denim-jacket",
+      "vim-button-up-shirt",
+      "gttw-benz-knit-sweater",
+      "gttw-airways-knit-sweater",
+    ],
+    shopFilter: "ss21",
+  },
+  {
+    slug: "fisherman",
+    title: "Fisherman",
+    season: "S/S ‘21",
+    tagline: "Denim cut for work — gallery from the Fisherman chapter.",
+    cover: cdn(
+      "50e239fd696d8b8ee0be5850cc0b433d5c73b0064742f4e2f04a5397bad9494e",
+      "1DA4930F-DD7F-433A-B869-E08D21C506B9.JPG",
+    ),
+    images: [
+      {
+        src: cdn(
+          "50e239fd696d8b8ee0be5850cc0b433d5c73b0064742f4e2f04a5397bad9494e",
+          "1DA4930F-DD7F-433A-B869-E08D21C506B9.JPG",
+        ),
+        alt: "Fisherman denim look",
+      },
+      {
+        src: cdn(
+          "2eb389228766edb8b5f0b695c1f5cbd8ac3c266daff66f1a18ab80db7c4b94d5",
+          "_V0A1434-copy.jpeg",
+        ),
+        alt: "Fisherman jacket worn",
+      },
+      {
+        src: cdn(
+          "fa8144a885cc8432970d258735f56538d6e3e0f514f2b81dd52f8b12ca9df6b2",
+          "_V0A1344.jpeg",
+        ),
+        alt: "Fisherman editorial frame",
+      },
+      {
+        src: cdn(
+          "f3ca437f809dc23a31c635e0fe78ae10e92228eb3a6edf06564b690a75692c46",
+          "_V0A1487.jpeg",
+        ),
+        alt: "Fisherman detail still",
+      },
+      {
+        src: cdn(
+          "58fde600030eeb26e5f47bc3cc723ff27008d4ca9e94cfb8a5f30ea66cc8488e",
+          "_DSC8521-copy-2.jpg",
+        ),
+        alt: "Fisherman chapter street still",
+      },
+      {
+        src: cdn(
+          "b652497c757a6c21eba8e2efdaf9783a7592aacecaf92294d381c678b163cfa9",
+          "GTTW_Fisherman-Denim_19_05_2021_Front.png",
+        ),
+        alt: "Fisherman Denim Jacket flat",
+      },
+    ],
+    productSlugs: [
+      "fisherman-denim-jacket",
+      "mens-fisherman-denim-pants",
+      "womens-fisherman-denim-pants",
+    ],
+    shopFilter: "fisherman",
+  },
+  {
+    slug: "knit-airways",
+    title: "Knit Airways",
+    season: "S/S ‘21",
+    tagline: "Benz and Airways — knits in motion.",
+    cover: cdn(
+      "21163236459d05a225c59136becbc95e4fa6e5ab042998179e5c31a512ac957b",
+      "E15FE768-73A3-46B8-999D-0588D7F0508A-2.jpg",
+    ),
+    images: [
+      {
+        src: cdn(
+          "21163236459d05a225c59136becbc95e4fa6e5ab042998179e5c31a512ac957b",
+          "E15FE768-73A3-46B8-999D-0588D7F0508A-2.jpg",
+        ),
+        alt: "Knit Airways look",
+      },
+      {
+        src: cdn(
+          "36ab7ac04ac9dd403ae7f3fd4216b971300631b06b8fd1cff8d8ce90cd0bc181",
+          "9DF2B719-4619-428E-86F7-AEAFE4C38180.JPG",
+        ),
+        alt: "Knitwear editorial",
+      },
+      {
+        src: cdn(
+          "56c092b769d42f0c38a63241733b793417a7d9f399179659f602ddda8f5e09ba",
+          "_V0A1606.jpg",
+        ),
+        alt: "Airways knit worn",
+      },
+      {
+        src: cdn(
+          "c39d82396bf005b096951ffdd89394886cbdc99a0cabdd7a886047bc9eab1661",
+          "IMG_6759.jpeg",
+        ),
+        alt: "Benz knit detail",
+      },
+      {
+        src: cdn(
+          "478d58810a31baf472744b2aecd974ae4d2c8c270470c30aa095776ed417e4bf",
+          "_V0A1693.jpeg",
+        ),
+        alt: "Knit Airways portrait",
+      },
+      {
+        src: cdn(
+          "3c615fff780f9566c02288401adde1c42f02390f965ee707aa1793ee27e9a1c3",
+          "GTTW-PLANE-FRONT.png",
+        ),
+        alt: "Airways Knit Sweater",
+      },
+    ],
+    productSlugs: ["gttw-benz-knit-sweater", "gttw-airways-knit-sweater"],
+    shopFilter: "knit",
+  },
+  {
+    slug: "essentials",
+    title: "Essentials",
+    season: "Permanent",
+    tagline: "Graphics that stay — Accra, Africa Is Not For Sale, GTTW staples.",
+    cover: cdn(
+      "683a42bae28fd6afa3319a2bcc4f134a2d338a46019eadeed82da92cf406ab6f",
+      "EfUkW5eXkAAPBue.jpeg",
+    ),
+    images: [
+      {
+        src: cdn(
+          "683a42bae28fd6afa3319a2bcc4f134a2d338a46019eadeed82da92cf406ab6f",
+          "EfUkW5eXkAAPBue.jpeg",
+        ),
+        alt: "Accra tee worn",
+      },
+      {
+        src: cdn(
+          "c40015a98e318b4e5e691eb298694987d4be6df981f462d16f02a20e76f32333",
+          "EfUkW5iX0AET8_K.jpeg",
+        ),
+        alt: "White Accra tee worn",
+      },
+      {
+        src: cdn(
+          "66bfa31a42c4bb999503ac8f9b4cfcfd334be0a9c4989588e05fe2f7f78e76c1",
+          "GTTW-ACCRA-BLACK.png",
+        ),
+        alt: "Black Accra Tee",
+      },
+      {
+        src: cdn(
+          "f44c41589d4f7d0bc247b78650dc7018aed980f2661f8384ee1afcef9ea6563f",
+          "Africa-Is-Not-For-Sale-Black-Front.png",
+        ),
+        alt: "Africa Is Not For Sale Tee",
+      },
+      {
+        src: cdn(
+          "85f10a42ae59065e716181bf5bcd07376ada020be6e830b6a49262aab654cdfc",
+          "Ghana-To-The-World-Black-Front.png",
+        ),
+        alt: "GTTW Hoodie Black",
+      },
+      {
+        src: cdn(
+          "a4af47de3d33ac7a0fbcee4cda564926762e4201ebbb7b08472e508a1665ddc2",
+          "Ghana-To-THe-World-Yellow-Front.png",
+        ),
+        alt: "GTTW Hoodie Yellow",
+      },
+      {
+        src: cdn(
+          "b841366e793ca46a53efd304857a49689666491e15dcfd3c4e9c7de7b4da297a",
+          "Africa-To-The-World.png",
+        ),
+        alt: "Africa To The World Hoodie",
+      },
+      {
+        src: cdn(
+          "0542371f6ba6a5594aab018c67a1058210c0682591fa3521a9e31cfb1da108ce",
+          "GTTW-01.png",
+        ),
+        alt: "GTTW brand graphic 01",
+      },
+    ],
+    productSlugs: [
+      "black-accra-tee",
+      "white-accra-tee",
+      "africa-is-not-for-sale-tee-black",
+      "ghana-to-the-world-hoodie-black",
+      "africa-to-the-world-hoodie",
+    ],
+    shopFilter: "essentials",
+  },
+  {
+    slug: "aw22",
+    title: "Autumn / Winter ‘22",
+    season: "A/W ‘22",
+    tagline: "Colder chapter — denser layers, same voice.",
+    cover: cdn(
+      "c808b52bff0c3b64fab0a3f6c73ea166dd48cb3768fe1bca6bcc39d025809086",
+      "_V0A1693.jpg",
+    ),
+    images: [
+      {
+        src: cdn(
+          "c808b52bff0c3b64fab0a3f6c73ea166dd48cb3768fe1bca6bcc39d025809086",
+          "_V0A1693.jpg",
+        ),
+        alt: "A/W ‘22 portrait",
+      },
+      {
+        src: cdn(
+          "d062ef87d4d0dfccb24b31bc10ff72241b518b7f7d323176d46aeb31a72dab9a",
+          "_DSC8449k-2.jpg",
+        ),
+        alt: "A/W ‘22 street still",
+      },
+      {
+        src: cdn(
+          "36ab7ac04ac9dd403ae7f3fd4216b971300631b06b8fd1cff8d8ce90cd0bc181",
+          "9DF2B719-4619-428E-86F7-AEAFE4C38180.JPG",
+        ),
+        alt: "A/W knit layering",
+      },
+      {
+        src: cdn(
+          "21163236459d05a225c59136becbc95e4fa6e5ab042998179e5c31a512ac957b",
+          "E15FE768-73A3-46B8-999D-0588D7F0508A-2.jpg",
+        ),
+        alt: "A/W lookbook frame",
+      },
+      {
+        src: cdn(
+          "50e239fd696d8b8ee0be5850cc0b433d5c73b0064742f4e2f04a5397bad9494e",
+          "1DA4930F-DD7F-433A-B869-E08D21C506B9.JPG",
+        ),
+        alt: "A/W denim layer",
+      },
+    ],
+    productSlugs: [
+      "gttw-benz-knit-sweater",
+      "gttw-airways-knit-sweater",
+      "fisherman-denim-jacket",
+    ],
+    shopFilter: "aw22",
+  },
+];
+
 /** Category tiles on home — DP-style entry grid */
 export const homeCategories = [
   {
@@ -648,6 +969,10 @@ export function getProduct(slug: string) {
 
 export function getLook(slug: string) {
   return looks.find((l) => l.slug === slug);
+}
+
+export function getLookbookGallery(slug: string) {
+  return lookbookGalleries.find((g) => g.slug === slug);
 }
 
 export function productsForCampaign(slug: string) {
