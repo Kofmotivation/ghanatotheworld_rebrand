@@ -686,8 +686,20 @@ a {
   gap: 1rem;
 }
 
+.radio-player--embed {
+  display: block;
+  padding: 1rem 1.15rem 1.15rem;
+}
+
 .radio-player--compact {
   padding: 0.75rem 0.9rem;
+}
+
+.radio-sc-iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
 }
 
 .radio-player button {

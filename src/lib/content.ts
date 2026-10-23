@@ -330,164 +330,129 @@ export type RadioEpisode = {
   artwork: string;
   duration: string;
   dateLabel: string;
-  /** Real audio not on crawl — UI stays honest */
+  /** True when a SoundCloud track is wired for embed play */
   audioAvailable: boolean;
   isPlaceholder?: boolean;
   featured?: boolean;
   campaignSlug?: string;
+  /** Public SoundCloud track page */
+  soundcloudUrl?: string;
+  /** SoundCloud numeric track id (for official widget) */
+  soundcloudTrackId?: number;
 };
 
-const radioArt = {
-  a: cdn(
-    "4c27be77c002ef200523e8f6f2ea50dba59a4ec65f0f986d029afb96d9400a93",
-    "19122020.jpg",
-  ),
-  b: cdn(
-    "c808b52bff0c3b64fab0a3f6c73ea166dd48cb3768fe1bca6bcc39d025809086",
-    "_V0A1693.jpg",
-  ),
-  c: cdn(
-    "d062ef87d4d0dfccb24b31bc10ff72241b518b7f7d323176d46aeb31a72dab9a",
-    "_DSC8449k-2.jpg",
-  ),
-  d: cdn(
-    "58fde600030eeb26e5f47bc3cc723ff27008d4ca9e94cfb8a5f30ea66cc8488e",
-    "_DSC8521-copy-2.jpg",
-  ),
-  e: cdn(
-    "50e239fd696d8b8ee0be5850cc0b433d5c73b0064742f4e2f04a5397bad9494e",
-    "1DA4930F-DD7F-433A-B869-E08D21C506B9.JPG",
-  ),
-  f: cdn(
-    "21163236459d05a225c59136becbc95e4fa6e5ab042998179e5c31a512ac957b",
-    "E15FE768-73A3-46B8-999D-0588D7F0508A-2.jpg",
-  ),
-  g: cdn(
-    "683a42bae28fd6afa3319a2bcc4f134a2d338a46019eadeed82da92cf406ab6f",
-    "EfUkW5eXkAAPBue.jpeg",
-  ),
-  h: cdn(
-    "36ab7ac04ac9dd403ae7f3fd4216b971300631b06b8fd1cff8d8ce90cd0bc181",
-    "9DF2B719-4619-428E-86F7-AEAFE4C38180.JPG",
-  ),
-} as const;
+/** Official SoundCloud widget src for a catalogue track */
+export function soundcloudEmbedSrc(
+  trackId: number,
+  opts?: { visual?: boolean; autoPlay?: boolean },
+) {
+  const params = new URLSearchParams({
+    url: `https://api.soundcloud.com/tracks/${trackId}`,
+    color: "111111",
+    auto_play: opts?.autoPlay ? "true" : "false",
+    hide_related: "true",
+    show_comments: "false",
+    show_user: "true",
+    show_reposts: "false",
+    show_teaser: "false",
+    visual: opts?.visual ? "true" : "false",
+  });
+  return `https://w.soundcloud.com/player/?${params.toString()}`;
+}
 
-/** GTTW Radio catalogue — real gttw.net episodes + honest placeholders */
+/**
+ * GTTW Radio catalogue — public tracks from
+ * https://soundcloud.com/user-946256240 (GTTW RADIO · 4 tracks).
+ *
+ * Series mapping (Kitsuné IA, chronological newest → last-releases):
+ * - last-releases: Ep 04 Dj Kwamzy, Ep 03 Blaq Pages
+ * - sessions: Ep 02 DJ Mohogany, Ep 01 GFLAMEE
+ * - archives: empty until more SoundCloud uploads land
+ * Featured = newest (Ep 04).
+ */
 export const radio: RadioEpisode[] = [
   {
-    ep: "01",
-    slug: "ep-01-gflamee",
-    title: "GFLAMEE",
-    artist: "GFLAMEE",
+    ep: "04",
+    slug: "ep-04-dj-kwamzy",
+    title: "Dj Kwamzy",
+    artist: "Dj Kwamzy",
     series: "last-releases",
     description:
-      "GTTW Radio Episode 01 — mix listed on gttw.net. A fire opener for the Accra-to-the-world frequency.",
-    artwork: radioArt.a,
-    duration: "—",
-    dateLabel: "Listed on gttw.net",
-    audioAvailable: false,
+      "Episode 04 of GTTW Radio’s Guest Mix features DJ Kwamzy, a Ghanaian born, UK based producer/DJ. He released his first project “Amapiano To The World” Vol. 1 last year, a five-track project which featured BuMan, Kirat Ayat, Blaq Pages, Genius and Yung D3mz. With this mix Kwamzy takes you through favorites, SoundCloud classics, and unreleased productions.",
+    artwork:
+      "https://i1.sndcdn.com/artworks-wmnXbdpbLyOC1nCc-dWba9g-t500x500.jpg",
+    duration: "50:02",
+    dateLabel: "Jan 2021",
+    audioAvailable: true,
     featured: true,
-    campaignSlug: "touch-the-sky",
-  },
-  {
-    ep: "02",
-    slug: "ep-02-dj-mohogany",
-    title: "DJ Mohogany",
-    artist: "DJ Mohogany",
-    series: "last-releases",
-    description:
-      "GTTW Radio Episode 02 — mix listed on gttw.net. Warm selections for the Fisherman chapter night.",
-    artwork: radioArt.e,
-    duration: "—",
-    dateLabel: "Listed on gttw.net",
-    audioAvailable: false,
-    campaignSlug: "fisherman",
+    campaignSlug: "essentials",
+    soundcloudUrl:
+      "https://soundcloud.com/user-946256240/gttw-radio-mix-ep-04-dj-kwamzy",
+    soundcloudTrackId: 969626416,
   },
   {
     ep: "03",
     slug: "ep-03-blaq-pages",
     title: "Blaq Pages",
     artist: "Blaq Pages",
-    series: "sessions",
+    series: "last-releases",
     description:
-      "GTTW Radio Episode 03 — mix listed on gttw.net. Pages turning between knit layers and night drives.",
-    artwork: radioArt.f,
-    duration: "—",
-    dateLabel: "Listed on gttw.net",
-    audioAvailable: false,
+      "Blaq Pages is a record producer and DJ based in Los Angeles, born in Accra. With this mix he journeys from South Africa back west through highlife, keeping tempo high and sticking to his signature sound.",
+    artwork:
+      "https://i1.sndcdn.com/artworks-BIE486t9fcLjznEx-9KYxzg-t500x500.jpg",
+    duration: "43:48",
+    dateLabel: "Sep 2020",
+    audioAvailable: true,
     campaignSlug: "knit-airways",
+    soundcloudUrl:
+      "https://soundcloud.com/user-946256240/gttw-radio-mix-ep-03-blaq-pages",
+    soundcloudTrackId: 893832796,
   },
   {
-    ep: "04",
-    slug: "ep-04-dj-kwamzy",
-    title: "Dj Kwamzy",
-    artist: "Dj Kwamzy",
+    ep: "02",
+    slug: "ep-02-dj-mohogany",
+    title: "DJ Mohogany",
+    artist: "DJ Mohogany",
     series: "sessions",
     description:
-      "GTTW Radio Episode 04 — mix listed on gttw.net. Closing energy for the Essentials shelf.",
-    artwork: radioArt.g,
-    duration: "—",
-    dateLabel: "Listed on gttw.net",
-    audioAvailable: false,
-    campaignSlug: "essentials",
+      "Episode 02 of GTTW Radio's Guest Mixes features DJ Mahogany with an ode to Ghana. Born in Brooklyn and raised in a traditional Liberian home, she's no stranger to diversity and culture.",
+    artwork:
+      "https://i1.sndcdn.com/artworks-mCTZRhIQKGEKHUdt-kJtg5A-t500x500.jpg",
+    duration: "46:17",
+    dateLabel: "Jul 2020",
+    audioAvailable: true,
+    campaignSlug: "fisherman",
+    soundcloudUrl:
+      "https://soundcloud.com/user-946256240/gttw-radio-mix-ep-02-dj-mohogany",
+    soundcloudTrackId: 853777600,
   },
   {
-    ep: "05",
-    slug: "ep-05-placeholder",
-    title: "Episode 05 — Placeholder",
-    artist: "TBA selector",
-    series: "archives",
-    description:
-      "Placeholder slot for an upcoming GTTW Radio session. Artwork and title are standing in until the brand publishes the mix.",
-    artwork: radioArt.b,
-    duration: "45:00",
-    dateLabel: "Coming soon",
-    audioAvailable: false,
-    isPlaceholder: true,
-  },
-  {
-    ep: "06",
-    slug: "ep-06-placeholder",
-    title: "Episode 06 — Placeholder",
-    artist: "TBA selector",
-    series: "archives",
-    description:
-      "Placeholder archive entry — keeps the Radio system complete while real audio files remain off crawl.",
-    artwork: radioArt.c,
-    duration: "52:00",
-    dateLabel: "Coming soon",
-    audioAvailable: false,
-    isPlaceholder: true,
-  },
-  {
-    ep: "07",
-    slug: "ep-07-placeholder",
-    title: "Episode 07 — Placeholder",
-    artist: "TBA selector",
+    ep: "01",
+    slug: "ep-01-gflamee",
+    title: "GFLAMEE",
+    artist: "GFLAMEE",
     series: "sessions",
     description:
-      "Placeholder session — mute stub player for UX completeness; no invented tracklist or audio.",
-    artwork: radioArt.d,
-    duration: "38:00",
-    dateLabel: "Coming soon",
-    audioAvailable: false,
-    isPlaceholder: true,
-  },
-  {
-    ep: "08",
-    slug: "ep-08-placeholder",
-    title: "Episode 08 — Placeholder",
-    artist: "TBA selector",
-    series: "archives",
-    description:
-      "Placeholder archive mix card. Replace with a published GTTW Radio episode when available.",
-    artwork: radioArt.h,
-    duration: "60:00",
-    dateLabel: "Coming soon",
-    audioAvailable: false,
-    isPlaceholder: true,
+      "Our first episode features Ghana's very own GFLAMEE — Accra born, Brooklyn based DJ/designer. His mix takes you on a nostalgic journey to Ghana in the early 2000s through highlife and hiplife.",
+    artwork:
+      "https://i1.sndcdn.com/artworks-G8YyaE8yS3pHtVoK-mYAN5Q-t500x500.jpg",
+    duration: "38:57",
+    dateLabel: "May 2020",
+    audioAvailable: true,
+    campaignSlug: "touch-the-sky",
+    soundcloudUrl:
+      "https://soundcloud.com/user-946256240/gttw-radio-mix-ep-01-gflamee",
+    soundcloudTrackId: 818251471,
   },
 ];
+
+/** SoundCloud profile that owns the catalogue */
+export const radioSoundcloud = {
+  profileUrl: "https://soundcloud.com/user-946256240",
+  username: "GTTW RADIO",
+  userId: 651702324,
+  trackCount: 4,
+} as const;
 
 export const radioSeriesNav = [
   { id: "all" as const, label: "Home" },

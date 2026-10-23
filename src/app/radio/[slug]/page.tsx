@@ -73,7 +73,7 @@ export default async function RadioEpisodePage({ params }: Props) {
             {ep.description}
           </p>
 
-          <div className="mt-8 max-w-md">
+          <div className="mt-8 max-w-xl">
             <RadioPlayer episode={ep} />
           </div>
 

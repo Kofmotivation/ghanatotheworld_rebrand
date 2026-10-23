@@ -10,6 +10,7 @@ import {
   radio,
   radioBySeries,
   radioSeriesNav,
+  radioSoundcloud,
   type RadioSeries,
 } from "@/lib/content";
 
@@ -59,10 +60,18 @@ export function RadioHub() {
           Ghana to the world — on frequency
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-[var(--fg-soft)] md:text-[0.95rem]">
-          GTTW Radio soundtracks the brand’s drops and diaspora nights. Episodes
-          01–04 are listed on gttw.net; later slots are honest placeholders until
-          new mixes publish. Stub play keeps the system complete — no invented
-          audio.
+          GTTW Radio soundtracks the brand’s drops and diaspora nights. Guest
+          mixes stream from{" "}
+          <a
+            href={radioSoundcloud.profileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--fg)] underline underline-offset-2"
+          >
+            SoundCloud
+          </a>
+          — vinyl covers flip on hover; open an episode to play the official
+          embed.
         </p>
       </section>
 
@@ -119,8 +128,7 @@ export function RadioHub() {
             </h2>
           </div>
           <p className="text-[0.65rem] tracking-[0.1em] text-[var(--mist)] uppercase">
-            {radio.filter((r) => r.isPlaceholder).length} placeholders ·{" "}
-            {radio.filter((r) => !r.isPlaceholder).length} from gttw.net
+            {radioSoundcloud.trackCount} mixes · SoundCloud
           </p>
         </div>
 
@@ -148,11 +156,12 @@ export function RadioHub() {
             </p>
           </div>
           <div>
-            <h2 className="font-display text-2xl md:text-3xl">Honest gaps</h2>
+            <h2 className="font-display text-2xl md:text-3xl">The catalogue</h2>
             <p className="mt-4 text-sm leading-relaxed text-[var(--fg-soft)]">
-              Mix titles for Ep 01–04 come from the live gttw.net Radio page.
-              Audio files were not available in crawl, so play controls are stub
-              UX. Placeholder episodes hold archive slots until new mixes land.
+              All {radioSoundcloud.trackCount} public tracks from the GTTW RADIO
+              SoundCloud profile play via the official widget. Last releases hold
+              the newest uploads; Sessions hold earlier guest mixes. Archives
+              stay empty until more sets publish.
             </p>
           </div>
         </div>
