@@ -451,6 +451,209 @@ a {
   padding: 0.45rem 1rem;
 }
 
+/* Vinyl sleeve / flip — editorial, prefers-reduced-motion safe */
+.vinyl-scene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  perspective: 1200px;
+  padding-right: 8%;
+}
+
+.vinyl-scene--featured {
+  padding-right: 10%;
+}
+
+.vinyl-peek {
+  position: absolute;
+  top: 6%;
+  right: 0;
+  bottom: 6%;
+  width: 42%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, #1a1a1a 0 18%, transparent 19%),
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      #0d0d0d 0 2px,
+      #161616 2px 4px
+    );
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  transform: translateX(0);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0;
+}
+
+.group:hover .vinyl-peek,
+.group:focus-within .vinyl-peek {
+  transform: translateX(10%);
+}
+
+.vinyl-flip {
+  position: relative;
+  z-index: 1;
+  width: 92%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 2px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.group:hover .vinyl-flip,
+.group:focus-within .vinyl-flip {
+  transform: rotateY(-180deg);
+}
+
+.vinyl-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.vinyl-face--front {
+  background: var(--bg-muted);
+}
+
+.vinyl-sleeve-sheen {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    transparent 42%,
+    transparent 58%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+}
+
+.vinyl-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 2;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  padding: 0.25rem 0.45rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.vinyl-face--back {
+  transform: rotateY(180deg);
+  display: grid;
+  place-items: center;
+  background: #111;
+}
+
+.vinyl-disc {
+  position: relative;
+  width: 86%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, #222 0 14%, transparent 15%),
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      #0a0a0a 0 1.5px,
+      #141414 1.5px 3px
+    );
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.vinyl-grooves {
+  position: absolute;
+  inset: 10%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow:
+    inset 0 0 0 12px transparent,
+    inset 0 0 0 13px rgba(255, 255, 255, 0.03),
+    inset 0 0 0 28px transparent,
+    inset 0 0 0 29px rgba(255, 255, 255, 0.025);
+}
+
+.vinyl-label {
+  position: absolute;
+  inset: 32%;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--bg-muted) 92%, #c4a574);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.4rem;
+  color: var(--fg);
+}
+
+.vinyl-label-ep {
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.vinyl-label-title {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(0.7rem, 1.6vw, 0.95rem);
+  line-height: 1.1;
+  margin-top: 0.2rem;
+  max-width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.vinyl-label-artist {
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  margin-top: 0.25rem;
+  opacity: 0.7;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vinyl-spindle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: #050505;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vinyl-flip,
+  .vinyl-peek {
+    transition: none;
+  }
+
+  .group:hover .vinyl-flip,
+  .group:focus-within .vinyl-flip {
+    transform: none;
+  }
+
+  .group:hover .vinyl-peek,
+  .group:focus-within .vinyl-peek {
+    transform: none;
+  }
+}
+
 .radio-mix-grid {
   list-style: none;
   margin: 0;

@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { RadioMixCard } from "@/components/radio/RadioMixCard";
+import { VinylCover } from "@/components/radio/VinylCover";
 import { RadioPlayer } from "@/components/RadioPlayer";
 import {
   featuredRadio,
@@ -75,16 +75,10 @@ export function RadioHub() {
           <div className="mt-6 grid gap-8 md:grid-cols-2 md:items-center md:gap-12">
             <Link
               href={`/radio/${featured.slug}`}
-              className="relative aspect-[4/5] overflow-hidden bg-[var(--bg-muted)] md:aspect-square"
+              className="group block max-w-md justify-self-center md:max-w-none md:justify-self-stretch"
+              aria-label={`Open GTTW Radio Ep ${featured.ep} — ${featured.title}`}
             >
-              <Image
-                src={featured.artwork}
-                alt={featured.title}
-                fill
-                priority
-                sizes="(max-width:768px) 100vw, 50vw"
-                className="object-cover"
-              />
+              <VinylCover mix={featured} size="featured" priority />
             </Link>
             <div>
               <p className="text-[0.65rem] tracking-[0.14em] text-[var(--mist)] uppercase">
