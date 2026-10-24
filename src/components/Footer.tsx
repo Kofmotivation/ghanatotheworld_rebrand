@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/BrandLogo";
 import { brand, nav } from "@/lib/content";
 
 export function Footer() {
@@ -6,7 +7,7 @@ export function Footer() {
     <footer className="mt-20 border-t border-[var(--line)] bg-[var(--bg-muted)]">
       <div className="mx-auto grid max-w-[1400px] gap-12 px-5 py-14 md:grid-cols-4 md:px-8 md:py-16">
         <div className="md:col-span-1">
-          <p className="font-display text-3xl tracking-wide">{brand.short}</p>
+          <BrandLogo size="footer" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--fg-soft)]">
             Cultural expression through design, fashion & film.
           </p>

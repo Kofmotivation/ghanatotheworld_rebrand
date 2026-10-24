@@ -4,9 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { BrandLogo } from "@/components/BrandLogo";
 import { useCart } from "@/components/cart/CartProvider";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
-import { brand, campaigns, categories, nav } from "@/lib/content";
+import { campaigns, categories, nav } from "@/lib/content";
 
 export function Header() {
   const pathname = usePathname();
@@ -78,13 +79,8 @@ export function Header() {
             </div>
           </div>
 
-          {/* Center wordmark */}
-          <Link
-            href="/"
-            className="font-display flex shrink-0 items-center px-2 text-[1.55rem] leading-none tracking-[0.06em] md:text-[1.75rem]"
-          >
-            {brand.short}
-          </Link>
+          {/* Center wordmark — gold cursive script */}
+          <BrandLogo size="header" className="self-center" />
 
           {/* Right */}
           <div className="flex flex-1 items-center justify-end gap-4 lg:gap-6">

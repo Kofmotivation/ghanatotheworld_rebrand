@@ -148,6 +148,56 @@ a {
   text-underline-offset: 0.25em;
 }
 
+/* Primary web logo — gold cursive Gttw script */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.brand-logo--header {
+  padding: 0.35rem 0.5rem;
+}
+
+.brand-logo--footer {
+  padding: 0;
+}
+
+.brand-logo__img {
+  width: auto;
+  height: 2.05rem;
+  max-width: min(42vw, 9.25rem);
+  object-fit: contain;
+}
+
+.brand-logo--footer .brand-logo__img {
+  height: 2.65rem;
+  max-width: 10.5rem;
+}
+
+@media (min-width: 768px) {
+  .brand-logo__img {
+    height: 2.35rem;
+    max-width: 10.5rem;
+  }
+
+  .brand-logo--footer .brand-logo__img {
+    height: 3rem;
+    max-width: 12rem;
+  }
+}
+
+/* Soft lift on light theme so gold reads against white */
+[data-theme="light"] .brand-logo__img {
+  filter: drop-shadow(0 1px 1.5px rgba(40, 28, 8, 0.18))
+    drop-shadow(0 0.5px 0 rgba(40, 28, 8, 0.12));
+}
+
+[data-theme="dark"] .brand-logo__img {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+}
+
 .cta {
   display: inline-flex;
   align-items: center;
