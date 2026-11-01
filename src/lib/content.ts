@@ -8,7 +8,7 @@ export const brand = {
     "“Ghana To The World” is a gift of love that arose from the founders’ enthusiasm towards cultural expression, specifically through design, fashion & film. We strive to produce unique projects that are geared towards the future development of cultural expression.",
   headline: "Touch The Sky in Latest SS21 Drop",
   policy: "ALL SALES FINAL",
-  copyright: "© 2022, GTTW",
+  copyright: "© 2027, GTTW",
   socials: {
     instagram: "https://www.instagram.com/ghanatotheworld/",
     twitter: "https://twitter.com/ghanatotheworld",

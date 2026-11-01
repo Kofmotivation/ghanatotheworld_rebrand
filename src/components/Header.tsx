@@ -39,7 +39,7 @@ export function Header() {
 
   return (
     <>
-      <div className="announcement">ALL SALES FINAL · © 2022 GTTW</div>
+      <div className="announcement">ALL SALES FINAL · © 2027 GTTW</div>
       <header className="relative sticky top-0 z-40 border-b border-[var(--gridline)] bg-[var(--bg)] text-[var(--fg)]">
         <nav
           className="relative flex items-stretch justify-between px-4 md:px-6"
