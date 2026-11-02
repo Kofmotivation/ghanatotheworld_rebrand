@@ -81,33 +81,13 @@ export function ProductPurchase({ product }: { product: Product }) {
               ? "Added to cart"
               : `Add to cart — ${formatPrice(product.price)}`}
         </button>
-        {!product.soldOut ? (
-          <a
-            href={product.cargoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cta"
-          >
-            Buy on gttw.net
-          </a>
-        ) : (
-          <a
-            href={product.cargoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link self-center"
-          >
-            View on gttw.net
-          </a>
-        )}
-        <Link href="/cart" className="nav-link self-center">
-          View cart
+        <Link href="/cart" className="cta">
+          Checkout
         </Link>
       </div>
 
       <p className="text-[0.7rem] leading-relaxed text-[var(--mist)]">
-        Checkout completes on the live GTTW Cargo shop (Stripe / PayPal). ALL
-        SALES FINAL.
+        Secure Stripe checkout on this site. ALL SALES FINAL.
       </p>
     </div>
   );

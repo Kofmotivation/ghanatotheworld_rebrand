@@ -80,3 +80,37 @@ See `.env.example` for local `.env.local`.
 ### Orders checklist
 
 Orders need Tapstitch `design_id` (numeric) per line item and `shipping_type_id` from `POST /v1/orders/shipping-options`. Designs are created in the portal / Design API — not inventable from the public catalog page alone.
+
+## Payments (Stripe Checkout)
+
+Cart checkout no longer opens Cargo/`gttw.net`. It creates a **Stripe Checkout Session** via `POST /api/checkout` and redirects to Stripe-hosted pay. Abstraction lives in `src/lib/payments/` (`PAYMENT_PROVIDER=stripe` today; other gateways can plug in later).
+
+| Route | Purpose |
+| --- | --- |
+| `POST /api/checkout` | Create Checkout Session from cart lines |
+| `GET /api/checkout` | Config probe (`configured` / provider) |
+| `POST /api/webhooks/stripe` | Payment events (signed) |
+| `/checkout/success` | Thank-you + clear cart |
+
+Prices are resolved **server-side** from `src/lib/content.ts` (client amounts are ignored).
+
+### Enable on Vercel
+
+1. [Stripe Dashboard → API keys](https://dashboard.stripe.com/apikeys) → copy **Secret key** (`sk_test_…` then later `sk_live_…`)
+2. Vercel → Environment Variables:
+
+| Variable | Value |
+| --- | --- |
+| `PAYMENTS_ENABLED` | `false` until keys are ready, then `true` |
+| `PAYMENT_PROVIDER` | `stripe` |
+| `STRIPE_SECRET_KEY` | `sk_…` |
+| `STRIPE_WEBHOOK_SECRET` | `whsec_…` (after webhook setup) |
+| `NEXT_PUBLIC_SITE_URL` | `https://www.ghanatotheworld.com` |
+
+3. Stripe → Developers → Webhooks → Add endpoint:  
+   `https://www.ghanatotheworld.com/api/webhooks/stripe`  
+   Events: `checkout.session.completed`, `checkout.session.async_payment_succeeded`  
+   Copy signing secret → `STRIPE_WEBHOOK_SECRET`
+4. Redeploy. Keep `PAYMENTS_ENABLED=false` until a test payment works in test mode.
+
+Local: put the same vars in `.env.local`, run `npm run dev`, use Stripe CLI `stripe listen --forward-to localhost:3000/api/webhooks/stripe`.

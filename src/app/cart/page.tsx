@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { formatPrice, getProduct } from "@/lib/content";
 import { useCart } from "@/components/cart/CartProvider";
+import { CheckoutButton } from "@/components/cart/CheckoutButton";
 
 export default function CartPage() {
   const { lines, subtotal, setQty, removeItem, clear } = useCart();
@@ -89,14 +90,6 @@ export default function CartPage() {
                       >
                         Remove
                       </button>
-                      <a
-                        href={product.cargoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="nav-link"
-                      >
-                        Buy on gttw.net
-                      </a>
                     </div>
                   </div>
                 </li>
@@ -111,28 +104,12 @@ export default function CartPage() {
               </p>
               <p className="font-display mt-1 text-3xl">{formatPrice(subtotal)}</p>
               <p className="mt-2 max-w-sm text-[0.7rem] text-[var(--mist)]">
-                Payment runs on the live GTTW Cargo checkout (Stripe / PayPal).
-                ALL SALES FINAL.
+                Secure checkout via Stripe. More payment methods can be added
+                later. ALL SALES FINAL.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:items-end">
-              <button
-                type="button"
-                className="cta"
-                onClick={() => {
-                  const urls = lines
-                    .map((l) => getProduct(l.slug)?.cargoUrl)
-                    .filter(Boolean) as string[];
-                  const unique = [...new Set(urls)];
-                  unique.forEach((url, i) => {
-                    window.setTimeout(() => {
-                      window.open(url, "_blank", "noopener,noreferrer");
-                    }, i * 200);
-                  });
-                }}
-              >
-                Checkout on gttw.net
-              </button>
+              <CheckoutButton lines={lines} />
               <button type="button" className="nav-link" onClick={clear}>
                 Clear cart
               </button>
