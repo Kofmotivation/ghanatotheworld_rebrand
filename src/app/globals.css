@@ -446,9 +446,21 @@ a {
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Product PNG categories — fill the tile without cropping sleeves */
+.category-tile-frame > img,
+.category-tile-frame > span > img {
+  transform: scale(0.96);
+  transform-origin: center center;
+}
+
 .look-tile:hover img,
 .category-tile:hover img {
   transform: scale(1.03);
+}
+
+.category-tile:hover .category-tile-frame > img,
+.category-tile:hover .category-tile-frame > span > img {
+  transform: scale(1);
 }
 
 .section-pad {

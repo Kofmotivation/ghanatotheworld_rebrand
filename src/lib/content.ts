@@ -1016,6 +1016,8 @@ export const homeCategories = [
   {
     label: "Tees",
     href: "/shop?chapter=essentials",
+    /** Product PNG flats — contain so sleeves aren’t cropped */
+    fit: "contain" as const,
     image: cdn(
       "66bfa31a42c4bb999503ac8f9b4cfcfd334be0a9c4989588e05fe2f7f78e76c1",
       "GTTW-ACCRA-BLACK.png",
@@ -1024,6 +1026,7 @@ export const homeCategories = [
   {
     label: "Denim",
     href: "/shop?chapter=fisherman",
+    fit: "contain" as const,
     image: cdn(
       "b652497c757a6c21eba8e2efdaf9783a7592aacecaf92294d381c678b163cfa9",
       "GTTW_Fisherman-Denim_19_05_2021_Front.png",
@@ -1032,6 +1035,7 @@ export const homeCategories = [
   {
     label: "Knitwear",
     href: "/shop?chapter=knit",
+    fit: "contain" as const,
     image: cdn(
       "3c615fff780f9566c02288401adde1c42f02390f965ee707aa1793ee27e9a1c3",
       "GTTW-PLANE-FRONT.png",
@@ -1040,6 +1044,8 @@ export const homeCategories = [
   {
     label: "Lookbook",
     href: "/looks",
+    /** Editorial still — edge-to-edge cover (reference fit) */
+    fit: "cover" as const,
     image: cdn(
       "c808b52bff0c3b64fab0a3f6c73ea166dd48cb3768fe1bca6bcc39d025809086",
       "_V0A1693.jpg",

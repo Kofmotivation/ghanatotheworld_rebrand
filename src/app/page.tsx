@@ -73,24 +73,37 @@ export default function HomePage() {
           </div>
         </Reveal>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
-          {homeCategories.map((cat, i) => (
-            <Reveal key={cat.label} delay={i * 0.05}>
-              <Link href={cat.href} className="category-tile group block">
-                <div className="relative aspect-[3/4] overflow-hidden bg-[var(--bg-muted)]">
-                  <Image
-                    src={cat.image}
-                    alt={cat.label}
-                    fill
-                    sizes="(max-width:768px) 50vw, 25vw"
-                    className="object-cover"
-                  />
-                </div>
-                <p className="mt-3 text-center text-xs tracking-[0.14em] uppercase">
-                  {cat.label}
-                </p>
-              </Link>
-            </Reveal>
-          ))}
+          {homeCategories.map((cat, i) => {
+            const contain = cat.fit === "contain";
+            return (
+              <Reveal key={cat.label} delay={i * 0.05}>
+                <Link href={cat.href} className="category-tile group block">
+                  <div
+                    className={
+                      contain
+                        ? "category-tile-frame relative aspect-[3/4] overflow-hidden bg-[var(--bg-muted)]"
+                        : "relative aspect-[3/4] overflow-hidden bg-[var(--bg-muted)]"
+                    }
+                  >
+                    <Image
+                      src={cat.image}
+                      alt={cat.label}
+                      fill
+                      sizes="(max-width:768px) 50vw, 25vw"
+                      className={
+                        contain
+                          ? "object-contain object-center p-3 md:p-4"
+                          : "object-cover"
+                      }
+                    />
+                  </div>
+                  <p className="mt-3 text-center text-xs tracking-[0.14em] uppercase">
+                    {cat.label}
+                  </p>
+                </Link>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
