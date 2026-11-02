@@ -247,10 +247,10 @@ a {
   background: var(--bg);
 }
 
-/* Cargo flats — zoom past empty PNG margins; keep garment in frame */
+/* Cargo flats — contain full garment; light scale only (no crop on /shop) */
 .product-frame > img,
 .product-frame > span > img {
-  transform: scale(1.48);
+  transform: scale(1);
   transform-origin: center center;
 }
 
