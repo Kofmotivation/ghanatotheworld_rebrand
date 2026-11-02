@@ -38,8 +38,8 @@ export function ProductCard({ product, variant = "grid" }: Props) {
           sizes="(max-width:768px) 50vw, 25vw"
           className={
             editorial
-              ? "object-contain object-center p-3 transition-opacity duration-500 group-hover:opacity-0 md:p-4"
-              : "object-contain object-center p-3 transition-opacity duration-300 group-hover:opacity-0 md:p-4"
+              ? "object-contain object-center p-4 transition-opacity duration-500 group-hover:opacity-0 md:p-5"
+              : "object-contain object-center p-4 transition-opacity duration-300 group-hover:opacity-0 md:p-5"
           }
         />
         <Image
@@ -49,8 +49,8 @@ export function ProductCard({ product, variant = "grid" }: Props) {
           sizes="(max-width:768px) 50vw, 25vw"
           className={
             editorial
-              ? "object-contain object-center p-3 opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:p-4"
-              : "object-contain object-center p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:p-4"
+              ? "object-contain object-center p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:p-5"
+              : "object-contain object-center p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:p-5"
           }
         />
 

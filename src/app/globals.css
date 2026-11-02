@@ -247,10 +247,10 @@ a {
   background: var(--bg);
 }
 
-/* Cargo flats — contain full garment; light scale only (no crop on /shop) */
+/* Cargo flats are edge-cropped in-file — slight shrink so sleeves aren’t clipped by the tile */
 .product-frame > img,
 .product-frame > span > img {
-  transform: scale(1);
+  transform: scale(0.86);
   transform-origin: center center;
 }
 
