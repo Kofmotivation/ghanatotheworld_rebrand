@@ -247,10 +247,10 @@ a {
   background: var(--bg);
 }
 
-/* Cargo flats are often edge-cropped — leave air in the tile */
+/* Cargo flats — zoom past empty PNG margins; keep garment in frame */
 .product-frame > img,
 .product-frame > span > img {
-  transform: scale(0.72);
+  transform: scale(1.48);
   transform-origin: center center;
 }
 
@@ -446,10 +446,10 @@ a {
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Product PNG categories — fill the tile without cropping sleeves */
+/* Product PNG categories — bigger in-tile, stop before sleeve crop (denim is widest) */
 .category-tile-frame > img,
 .category-tile-frame > span > img {
-  transform: scale(0.96);
+  transform: scale(1.38) !important;
   transform-origin: center center;
 }
 
@@ -460,7 +460,7 @@ a {
 
 .category-tile:hover .category-tile-frame > img,
 .category-tile:hover .category-tile-frame > span > img {
-  transform: scale(1);
+  transform: scale(1.42) !important;
 }
 
 .section-pad {

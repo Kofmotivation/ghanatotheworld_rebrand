@@ -81,8 +81,8 @@ export default function HomePage() {
                   <div
                     className={
                       contain
-                        ? "category-tile-frame relative aspect-[3/4] overflow-hidden bg-[var(--bg-muted)]"
-                        : "relative aspect-[3/4] overflow-hidden bg-[var(--bg-muted)]"
+                        ? "category-tile-frame relative aspect-[4/5] overflow-hidden bg-[var(--bg-muted)]"
+                        : "relative aspect-[4/5] overflow-hidden bg-[var(--bg-muted)]"
                     }
                   >
                     <Image
@@ -92,7 +92,7 @@ export default function HomePage() {
                       sizes="(max-width:768px) 50vw, 25vw"
                       className={
                         contain
-                          ? "object-contain object-center p-3 md:p-4"
+                          ? "object-contain object-center"
                           : "object-cover"
                       }
                     />
